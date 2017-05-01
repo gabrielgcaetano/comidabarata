@@ -93,6 +93,16 @@ class Produto extends CI_Controller {
         $this->load->view('produtos/update_product', $data);
         $this->load->view('inc/footer-adm');
     }
+    
+     public function formProduct($id = null) {
+        $this->db->where('id', $id);
+        $data['product'] = $this->db->get('product')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('produtos/product', $data);
+        $this->load->view('inc/footer-adm');
+    }
 
     public function update() {
         // recebe os dados do formulário
@@ -108,5 +118,43 @@ class Produto extends CI_Controller {
             redirect(base_url('produto'));
         }
     }
+    
+    public function comprar() {
+        
+        // recebe os dados do formulário
+        $data['id_produto'] = $this->input->post('id');
+        $data['id_user'] = $_SESSION["id_user"];
+        $data['quant'] = $this->input->post('quant');
+        $data['status'] = 1;
+
+
+        if ($this->db->insert('transacao', $data)) {
+
+// recarrega a view (index)
+            redirect(base_url('produto/historicoCompras'));
+        } else {
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('produtos?erro');
+            $this->load->view('inc/footer-adm');
+        }
+    }
+    
+     public function historicoCompras() {
+        $this->db->select('*');
+        $this->db->where('status', "1");
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        $this->db->join('product','product_id=', 'inner' );
+        $dados['transacao'] = $this->db->get('transacao')->result();
+        
+       
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('produtos/historico', $dados);
+        $this->load->view('inc/footer-adm');
+    }
+    
+    
 
 }

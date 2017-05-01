@@ -37,7 +37,7 @@
                         <div class="row mt">
                             <div class="col-lg-12">
                                 <div class="content-panel">
-                                    <h4><i class="fa fa-angle-right"></i> Anúncios Global</h4>
+                                    <h4><i class="fa fa-angle-right"></i> Historico</h4>
                                     <section id="unseen">
                                         <table class="table table-responsive">                    
                                             <thead>
@@ -50,7 +50,7 @@
                                             </thead>
                                             <tbody>    
                                                 <!-- Busca todos os dados que tem no banco atravez da controler -->
-                                                <?php foreach ($product as $prod) { ?>
+                                                <?php foreach ($transacao as $prod) { ?>
                                                     <tr>
                                                         <td><p class="centered"><a href="#"><img src="<?= base_url(); ?>images/<?= $prod->foto; ?>" class="img-circle" width="80"></a></p></td>
                                                         <td><br><br><p class=""> <?= $prod->name; ?> </p></td>
