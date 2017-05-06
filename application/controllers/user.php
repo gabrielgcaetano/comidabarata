@@ -36,26 +36,26 @@ class User extends CI_Controller {
     public function login_entry() {
 
         // Pega os dados do Formulario de Login
-        $email_user = $this->input->post('email_user');
-        $password_user = $this->input->post('password_user');
+        $user_email = $this->input->post('user_email');
+        $user_senha = $this->input->post('user_senha');
 
         // Compara os dados no banco
-        $this->db->where('email_user', $email_user);
-        $this->db->where('password_user', $password_user);
+        $this->db->where('user_email', $user_email);
+        $this->db->where('user_senha', $user_senha);
 
         // Retorna o resultado
         $data['user'] = $this->db->get('user')->result();
         
         if (count($data['user']) == 1) {
-            $dados['full_name_user'] = $data['user'][0]->email_user;
-            $dados['id'] = $data['user'][0]->id;
+            $dados['user_email'] = $data['user'][0]->user_email;
+            $dados['user_id'] = $data['user'][0]->user_id;
  
-            $this->session->set_userdata('id_user', $dados['id']);
+            $this->session->set_userdata('user_id', $dados['user_id']);
 
             redirect('produto');
         } else {
 
-            redirect('main');
+            redirect('main?ErroSenha');
         }
     }
 
@@ -68,9 +68,9 @@ class User extends CI_Controller {
 
     public function register_save() {
         // recebe os dados do formulário
-        $data['full_name_user'] = $this->input->post('full_name_user');
-        $data['email_user'] = $this->input->post('email_user');
-        $data['password_user'] = $this->input->post('password_user');
+        $data['user_nome'] = $this->input->post('user_nome');
+        $data['user_email'] = $this->input->post('user_email');
+        $data['user_senha'] = $this->input->post('user_senha');
         
 
         if ($this->db->insert('user', $data)) {

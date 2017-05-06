@@ -8,7 +8,7 @@
                 <h5 class="centered">Gabriel Caetano</h5>
 
                 <li class="mt">
-                    <a class="active" href="<?= base_url(); ?>produto">
+                    <a class="active" href="<?= base_url(); ?>produto/all_adverts">
                         <i class="fa fa-dashboard"></i>
                         <span>Home</span>
                     </a>

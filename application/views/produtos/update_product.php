@@ -39,27 +39,27 @@
                     <form method="post" action="<?= base_url('produto/update') ?>"
                           enctype="multipart/form-data">
 
-                        <input type="hidden" id="id" name="id" value="<?= $product[0]->id ?>">
+                        <input type="hidden" id="produto_id" name="produto_id" value="<?= $produto[0]->produto_id ?>">
 
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name"> Nome </label>
-                                <input type="text" id="name" name="name" 
-                                       class="form-control" value="<?= $product[0]->name ?>" required>
+                                <label for="produto_nome"> Nome </label>
+                                <input type="text" id="produto_nome" name="produto_nome" 
+                                       class="form-control" value="<?= $produto[0]->produto_nome ?>" required>
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="price"> Preço </label>
-                                <input type="text" id="price" name="price" 
-                                       class="form-control" value="<?= $product[0]->price ?>" required>
+                                <label for="produto_preco_novo"> Preço </label>
+                                <input type="text" id="produto_preco_novo" name="produto_preco_novo" 
+                                       class="form-control" value="<?= $produto[0]->produto_preco_novo ?>" required>
                             </div>
                         </div>
 
                         <div class="col-sm-4">
-                            <label for="status"> Status Anúncio </label>
-                            <select class="form-control" id="status" name="status" >
+                            <label for="produto_status"> Status Anúncio </label>
+                            <select class="form-control" id="produto_status" name="produto_status" >
                                 <option value="1">Ativo</option>
                                 <option value="0">Inativo</option>
                             </select>

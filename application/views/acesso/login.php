@@ -4,12 +4,12 @@
             <form class="form-pre-acesso" method="post" action="<?= base_url() ?>user/login_entry" enctype="multipart/form-data" >
                  
                 <div class="form-group text-center">
-                    <label for="email_user"><h3 class="bordas">Email</h3></label>
-                    <input type="email" class="form-control" id="email_user" name="email_user" placeholder="Email">
+                    <label for="user_email"><h3 class="bordas">Email</h3></label>
+                    <input type="email" class="form-control" id="user_email" name="user_email" placeholder="Email">
                 </div>
                 <div class="form-group text-center">
-                    <label for="exampleInputPassword1"><h3 class="bordas">Senha</h3></label>
-                    <input type="password" class="form-control" id="password_user" name="password_user" placeholder="Password">
+                    <label for="user_senha"><h3 class="bordas">Senha</h3></label>
+                    <input type="password" class="form-control" id="user_senha" name="user_senha" placeholder="Password">
                 </div>
                 <div class="checkbox text-right">
                     <label>

@@ -39,15 +39,15 @@
                     <form method="post" action="<?= base_url('produto/comprar') ?>"
                           enctype="multipart/form-data">
 
-                        <input type="hidden" id="id" name="id" value="<?= $product[0]->id ?>">
+                        <input type="hidden" id="produto_id" name="produto_id" value="<?= $produto[0]->produto_id ?>">
 
-                        <h1><?= $product[0]->name ?></h1>
+                        <h1><?= $produto[0]->produto_nome ?></h1>
                         <br>
 
                         <div class="col-sm-12">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-3">
-                                <img src="<?= base_url(); ?>images/<?= $product[0]->foto; ?>" class="img-thumbnail" width="300px" height="300px" >
+                                <img src="<?= base_url(); ?>images/<?= $produto[0]->produto_foto; ?>" class="img-thumbnail" width="300px" height="300px" >
                             </div>
 
                             <!--Preço-->
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="col-sm-8">
-                                    <h2 style="color: red"> R$ <?= $product[0]->price ?> </h2>
+                                    <h2 style="color: red"> R$ <?= $produto[0]->produto_preco_novo ?> </h2>
                                 </div>
                             </div>
 
@@ -73,7 +73,7 @@
                             <div class="col-sm-8">
                                 <div class="col-sm-2">
                                     <div class="form-group">
-                                        <input type="text" id="quant" name="quant" 
+                                        <input type="text" id="quant" name="transacao_quant_produto" 
                                                class="form-control" size="15" required>
                                     </div>
                                 </div>

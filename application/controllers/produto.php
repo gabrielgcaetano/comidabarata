@@ -21,8 +21,8 @@ class Produto extends CI_Controller {
      */
     public function index() {
         $this->db->select('*');
-        $this->db->where('status', "1");
-        $dados['product'] = $this->db->get('product')->result();
+        $this->db->where('produto_status', "1");
+        $dados['produto'] = $this->db->get('produto')->result();
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -32,9 +32,19 @@ class Produto extends CI_Controller {
 
     public function my_adverts() {
         $this->db->select('*');
-        $this->db->where('status', "1");
-        $this->db->where('id_user', $this->session->userdata('id_user'));
-        $dados['product'] = $this->db->get('product')->result();
+        $this->db->where('produto_status', "1");
+        $this->db->where('produto_user_id', $this->session->userdata('user_id'));
+        $dados['produto'] = $this->db->get('produto')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('produtos/my_adverts', $dados);
+        $this->load->view('inc/footer-adm');
+    }
+    public function all_adverts() {
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $dados['produto'] = $this->db->get('produto')->result();
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -43,19 +53,26 @@ class Produto extends CI_Controller {
     }
 
     public function registerProduct() {
+        
+        $this->db->select('*');
+        $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
+        
+        
+        
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
-        $this->load->view('produtos/register_product');
+        $this->load->view('produtos/register_product',$dados);
         $this->load->view('inc/footer-adm');
     }
 
     public function saveRegister() {
 
         // recebe os dados do formulário
-        $data['name'] = $this->input->post('name');
-        $data['price'] = $this->input->post('price');
-        $data['id_user']= $this->session->userdata('id_user');
-        $data['status'] = 1;
+        $data['produto_nome'] = $this->input->post('produto_nome');
+        $data['produto_preco_novo'] = $this->input->post('produto_preco_novo');
+        $data['produto_user_id']= $this->session->userdata('user_id');
+        $data['produto_tipo_produto_id']= $this->input->post('produto_tipo_produto');
+        $data['produto_status'] = 1;
 
         // define as configurações para upload da foto
         $config['upload_path'] = './images/';
@@ -67,12 +84,12 @@ class Produto extends CI_Controller {
 
         $this->load->library('upload', $config);
 
-        $this->upload->do_upload('foto');
+        $this->upload->do_upload('produto_foto');
 
         $arquivo = $this->upload->data();
-        $data['foto'] = $arquivo['file_name'];
+        $data['produto_foto'] = $arquivo['file_name'];
 
-        if ($this->db->insert('product', $data)) {
+        if ($this->db->insert('produto', $data)) {
 
 // recarrega a view (index)
             redirect(base_url('produto'));
@@ -84,9 +101,9 @@ class Produto extends CI_Controller {
         }
     }
 
-    public function formUpdate($id = null) {
-        $this->db->where('id', $id);
-        $data['product'] = $this->db->get('product')->result();
+    public function formUpdate($produto_id = null) {
+        $this->db->where('produto_id', $produto_id);
+        $data['produto'] = $this->db->get('produto')->result();
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -95,8 +112,8 @@ class Produto extends CI_Controller {
     }
     
      public function formProduct($id = null) {
-        $this->db->where('id', $id);
-        $data['product'] = $this->db->get('product')->result();
+        $this->db->where('produto_id', $id);
+        $data['produto'] = $this->db->get('produto')->result();
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -106,14 +123,14 @@ class Produto extends CI_Controller {
 
     public function update() {
         // recebe os dados do formulário
-        $id = $this->input->post('id');
+        $id = $this->input->post('produto_id');
 
-        $data['name'] = $this->input->post('name');
-        $data['price'] = $this->input->post('price');
-        $data['status'] = $this->input->post('status');
+        $data['produto_nome'] = $this->input->post('produto_nome');
+        $data['produto_preco_novo'] = $this->input->post('produto_preco_novo');
+        $data['produto_status'] = $this->input->post('produto_status');
 
-        $this->db->where('id', $id);
-        if ($this->db->update('product', $data)) {
+        $this->db->where('produto_id', $id);
+        if ($this->db->update('produto', $data)) {
             // recarrega a view (index)
             redirect(base_url('produto'));
         }
@@ -122,10 +139,10 @@ class Produto extends CI_Controller {
     public function comprar() {
         
         // recebe os dados do formulário
-        $data['id_produto'] = $this->input->post('id');
-        $data['id_user'] = $_SESSION["id_user"];
-        $data['quant'] = $this->input->post('quant');
-        $data['status'] = 1;
+        $data['produto_id'] = $this->input->post('produto_id');
+        $data['user_id'] = $_SESSION["user_id"];
+        $data['produto_estoque'] = $this->input->post('produto_estoque');
+        $data['produto_status'] = 1;
 
 
         if ($this->db->insert('transacao', $data)) {
@@ -143,8 +160,8 @@ class Produto extends CI_Controller {
      public function historicoCompras() {
         $this->db->select('*');
         $this->db->where('status', "1");
-        $this->db->where('id_user', $this->session->userdata('id_user'));
-        $this->db->join('product','product_id=', 'inner' );
+        $this->db->where('user_id', $this->session->userdata('user_id'));
+        $this->db->join('produto','produto_id=transacao_produto_id', 'inner' );
         $dados['transacao'] = $this->db->get('transacao')->result();
         
        

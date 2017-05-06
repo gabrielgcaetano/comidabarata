@@ -50,12 +50,12 @@
                                             </thead>
                                             <tbody>    
                                                 <!-- Busca todos os dados que tem no banco atravez da controler -->
-                                                <?php foreach ($product as $prod) { ?>
+                                                <?php foreach ($produto as $prod) { ?>
                                                     <tr>
-                                                        <td><p class="centered"><a href="#"><img src="<?= base_url(); ?>images/<?= $prod->foto; ?>" class="img-circle" width="80"></a></p></td>
-                                                        <td><br><br><p class=""> <?= $prod->name; ?> </p></td>
-                                                        <td><br><br><p class=""> <?= $prod->price; ?> </p></td>
-                                                        <td><br><a href="<?= base_url('produto/formUpdate/' . $prod->id) ?>" class="btn btn-lg btn-primary btn-group">Detalhes</a> </td> 
+                                                        <td><p class="centered"><a href="#"><img src="<?= base_url(); ?>images/<?= $prod->produto_foto; ?>" class="img-circle" width="80"></a></p></td>
+                                                        <td><br><br><p class=""> <?= $prod->produto_nome; ?> </p></td>
+                                                        <td><br><br><p class=""> <?= $prod->produto_preco_novo; ?> </p></td>
+                                                        <td><br><a href="<?= base_url('produto/formUpdate/' . $prod->produto_id) ?>" class="btn btn-lg btn-primary btn-group">Detalhes</a> </td> 
                                                     </tr>    
                                                 <?php } ?>
                                             </tbody>
