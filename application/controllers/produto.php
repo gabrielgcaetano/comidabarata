@@ -41,6 +41,7 @@ class Produto extends CI_Controller {
         $this->load->view('produtos/my_adverts', $dados);
         $this->load->view('inc/footer-adm');
     }
+
     public function all_adverts() {
         $this->db->select('*');
         $this->db->where('produto_status', "1");
@@ -53,15 +54,15 @@ class Produto extends CI_Controller {
     }
 
     public function registerProduct() {
-        
+
         $this->db->select('*');
         $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
-        
-        
-        
+
+
+
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
-        $this->load->view('produtos/register_product',$dados);
+        $this->load->view('produtos/register_product', $dados);
         $this->load->view('inc/footer-adm');
     }
 
@@ -70,8 +71,8 @@ class Produto extends CI_Controller {
         // recebe os dados do formulário
         $data['produto_nome'] = $this->input->post('produto_nome');
         $data['produto_preco_novo'] = $this->input->post('produto_preco_novo');
-        $data['produto_user_id']= $this->session->userdata('user_id');
-        $data['produto_tipo_produto_id']= $this->input->post('produto_tipo_produto');
+        $data['produto_user_id'] = $this->session->userdata('user_id');
+        $data['produto_tipo_produto_id'] = $this->input->post('produto_tipo_produto');
         $data['produto_status'] = 1;
 
         // define as configurações para upload da foto
@@ -110,8 +111,8 @@ class Produto extends CI_Controller {
         $this->load->view('produtos/update_product', $data);
         $this->load->view('inc/footer-adm');
     }
-    
-     public function formProduct($id = null) {
+
+    public function formProduct($id = null) {
         $this->db->where('produto_id', $id);
         $data['produto'] = $this->db->get('produto')->result();
 
@@ -135,9 +136,9 @@ class Produto extends CI_Controller {
             redirect(base_url('produto'));
         }
     }
-    
+
     public function comprar() {
-        
+
         // recebe os dados do formulário
         $data['produto_id'] = $this->input->post('produto_id');
         $data['user_id'] = $_SESSION["user_id"];
@@ -156,22 +157,83 @@ class Produto extends CI_Controller {
             $this->load->view('inc/footer-adm');
         }
     }
-    
-     public function historicoCompras() {
+
+    public function historicoCompras() {
         $this->db->select('*');
         $this->db->where('status', "1");
         $this->db->where('user_id', $this->session->userdata('user_id'));
-        $this->db->join('produto','produto_id=transacao_produto_id', 'inner' );
+        $this->db->join('produto', 'produto_id=transacao_produto_id', 'inner');
         $dados['transacao'] = $this->db->get('transacao')->result();
-        
-       
+
+
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
         $this->load->view('produtos/historico', $dados);
         $this->load->view('inc/footer-adm');
     }
+
     
-    
+    public function tipoProdutoLista() {
+        $this->db->select('*');
+        $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
+
+        $this->load->view('inc/modal');
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('adm/tipoProdutosLista', $dados);
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function tipoProdutoAdd() {
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('adm/tipoProdutosAdd');
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function tipoProdutoSalvar() {
+        // recebe os dados do formulário
+        $data['tipo_produto_nome'] = $this->input->post('tipo_produto_nome');
+        $data['tipo_produto_status'] = 1;
+
+            // Produto Salvo
+
+        if ($this->db->insert('tipo_produto', $data)) {
+
+            $this->db->select('*');
+            $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
+
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalSalvoCadastro');
+            $this->load->view('adm/tipoProdutosLista', $dados);
+            $this->load->view('inc/footer-adm');
+
+            // Erro Cadastro
+        } else {
+
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalSalvoCadastro');
+            $this->load->view('produto/tipoProdutoAdd');
+            $this->load->view('inc/footer-adm');
+        }
+    }
+
+    public function tipoProdutoPesquisa() {
+        $nome = $this->input->post('tipo_produto_nome');
+
+        $this->db->select('*');
+        $this->db->like('tipo_produto_nome', $nome);
+        $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('adm/tipoProdutosLista.php', $dados);
+        $this->load->view('inc/footer-adm');
+    }
 
 }
