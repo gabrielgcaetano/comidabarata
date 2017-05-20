@@ -59,6 +59,12 @@ class User extends CI_Controller {
         }
     }
 
+    /*
+     * =============================================
+     * =====    Inicio do Controller do USER   =====
+     * =============================================    
+     */
+
     public function register() {
 
         $this->load->view('inc/head-acesso');
@@ -80,6 +86,53 @@ class User extends CI_Controller {
             redirect(base_url(''));
         }
     }
+
+    public function UserUpdate($user_id = null) {
+        $this->db->where('user_id', $_SESSION['user_id']);
+        $data['user'] = $this->db->get('user')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('perfil/userUpdate', $data);
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function UserUpdateSalvar() {
+        // recebe os dados do formulário
+        $id = $this->input->post('user_id');
+
+        $data['user_nome'] = $this->input->post('user_nome');
+        $data['user_status'] = $this->input->post('user_status');
+
+        $this->db->where('user_id', $id);
+        if ($this->db->update('user', $data)) {
+
+            $this->db->where('user_id', $_SESSION['user_id']);
+            $data['user'] = $this->db->get('user')->result();
+
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalSalvoUpdate');
+            $this->load->view('perfil/userUpdate', $data);
+            $this->load->view('inc/footer-adm');
+
+        } else {
+            // Erro Cadastro
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalErroUpdate');
+            $this->load->view('perfil/userUpdate', $data);
+            $this->load->view('inc/footer-adm');
+        }
+    }
+
+    /*
+     * =============================================
+     * ===== Inicio do Controller do TIPO USER =====
+     * =============================================    
+     */
 
     public function tipoUserLista() {
         $this->db->select('*');
@@ -150,7 +203,7 @@ class User extends CI_Controller {
         $this->db->like('user_tipo_nome', $nome);
         $dados['user_tipo'] = $this->db->get('user_tipo')->result();
         $count = count($dados['user_tipo']);
-        
+
         // Verifica se resultou em Zero resultados
         if ($count > 0) {
             $this->load->view('inc/head-adm');

@@ -1,3 +1,13 @@
+<!--footer start-->
+<footer class="site-footer">
+    <div class="text-center">
+        2017 - COMIDABARATA.com - Todos Direitos Reservados
+        <a href="<?= base_url(); ?>" class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+</footer>
+<!--footer end-->
 
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="<?= base_url(); ?>assets-adm/js/jquery.js"></script>

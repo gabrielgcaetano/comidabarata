@@ -36,3 +36,30 @@
     </head>
 
     <body>
+
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="<?= base_url(); ?>" class="logo"><b>COMIDABARATA<span>.com</span></b></a>
+            <!--logo end-->
+
+            <div class="btn-group pull-right top-menu" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="" href="<?= base_url(); ?>user/UserUpdate">Perfil</a></li>
+                        <li><a class="" href="<?= base_url(); ?>">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--header end-->

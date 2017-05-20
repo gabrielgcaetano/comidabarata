@@ -31,8 +31,8 @@
                         <span>Administrativo</span>
                     </a>
                     <ul class="sub">
-                        <li><a  href="<?= base_url(); ?>produto/tipoProdutoLista">Categoria de Produtos</a></li>
-                        <li><a  href="<?= base_url(); ?>user/tipoUserLista">Categoria de Usuário</a></li>
+                        <li><a  href="<?= base_url(); ?>produto/tipoProdutoLista">Tipo de Produtos</a></li>
+                        <li><a  href="<?= base_url(); ?>user/tipoUserLista">Tipo de Usuário</a></li>
                         
                     </ul>
                 </li>
