@@ -173,7 +173,6 @@ class Produto extends CI_Controller {
         $this->load->view('inc/footer-adm');
     }
 
-    
     public function tipoProdutoLista() {
         $this->db->select('*');
         $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
@@ -197,7 +196,7 @@ class Produto extends CI_Controller {
         $data['tipo_produto_nome'] = $this->input->post('tipo_produto_nome');
         $data['tipo_produto_status'] = 1;
 
-            // Produto Salvo
+        // Produto Salvo
 
         if ($this->db->insert('tipo_produto', $data)) {
 
@@ -217,7 +216,7 @@ class Produto extends CI_Controller {
             $this->load->view('inc/head-adm');
             $this->load->view('inc/menu_left');
             $this->load->view('inc/modal');
-            $this->load->view('modal/modalSalvoCadastro');
+            $this->load->view('modal/modalErroCadastro');
             $this->load->view('produto/tipoProdutoAdd');
             $this->load->view('inc/footer-adm');
         }
@@ -229,11 +228,23 @@ class Produto extends CI_Controller {
         $this->db->select('*');
         $this->db->like('tipo_produto_nome', $nome);
         $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
+        $count = count($dados['tipo_produto']);
 
-        $this->load->view('inc/head-adm');
-        $this->load->view('inc/menu_left');
-        $this->load->view('adm/tipoProdutosLista.php', $dados);
-        $this->load->view('inc/footer-adm');
+        // Verifica se resultou em Zero resultados
+        if ($count > 0) {
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('adm/tipoProdutosLista.php', $dados);
+            $this->load->view('inc/footer-adm');
+        } else {
+            $this->load->view('inc/modal');
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalPesquisaZero');
+            $this->load->view('adm/tipoProdutosLista.php', $dados);
+            $this->load->view('inc/footer-adm');
+        }
     }
 
 }

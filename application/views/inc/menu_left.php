@@ -25,6 +25,17 @@
                         
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-desktop"></i>
+                        <span>Administrativo</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="<?= base_url(); ?>produto/tipoProdutoLista">Categoria de Produtos</a></li>
+                        <li><a  href="<?= base_url(); ?>user/tipoUserLista">Categoria de Usuário</a></li>
+                        
+                    </ul>
+                </li>
 
             </ul>
             <!-- sidebar menu end-->
