@@ -102,7 +102,17 @@ class User extends CI_Controller {
         $id = $this->input->post('user_id');
 
         $data['user_nome'] = $this->input->post('user_nome');
+        $data['user_sexo'] = $this->input->post('user_sexo');
+        $data['user_email'] = $this->input->post('user_email');
+        $data['user_senha'] = $this->input->post('user_senha');
+        $data['user_documento'] = $this->input->post('user_documento');
+        $data['user_dt_aniversario'] = $this->input->post('user_dt_aniversario');
+        $data['user_ddd_1'] = $this->input->post('user_ddd_1');
+        $data['user_tel_1'] = $this->input->post('user_tel_1');
+        $data['user_ddd_2'] = $this->input->post('user_ddd_2');
+        $data['user_tel_2'] = $this->input->post('user_tel_2');
         $data['user_status'] = $this->input->post('user_status');
+        $data['user_cep'] = $this->input->post('user_cep');
 
         $this->db->where('user_id', $id);
         if ($this->db->update('user', $data)) {
@@ -116,7 +126,6 @@ class User extends CI_Controller {
             $this->load->view('modal/modalSalvoUpdate');
             $this->load->view('perfil/userUpdate', $data);
             $this->load->view('inc/footer-adm');
-
         } else {
             // Erro Cadastro
             $this->load->view('inc/head-adm');

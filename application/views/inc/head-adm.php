@@ -11,12 +11,7 @@
 
         <!-- Bootstrap core CSS -->
         <link href="<?= base_url(); ?>assets-adm/css/bootstrap.css" rel="stylesheet">
-        <!--external css-->
-        <link href="<?= base_url(); ?>assets-adm/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets-adm/css/zabuto_calendar.css">
-        <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets-adm/js/gritter/css/jquery.gritter.css" />
-        <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets-adm/lineicons/style.css">    
-
+     
         <!-- Custom styles for this template -->
         <link href="<?= base_url(); ?>assets-adm/css/style.css" rel="stylesheet">
         <link href="<?= base_url(); ?>assets-adm/css/style-responsive.css" rel="stylesheet">

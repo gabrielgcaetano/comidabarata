@@ -246,5 +246,46 @@ class Produto extends CI_Controller {
             $this->load->view('inc/footer-adm');
         }
     }
+    
+    public function tipoProdutosUpdate($tipo_produto_id = null) {
+        $this->db->where('tipo_produto_id', $tipo_produto_id);
+        $data['tipo_produto'] = $this->db->get('tipo_produto')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('adm/tipoProdutosUpdate', $data);
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function tipoProdutosUpdateSalvar() {
+        // recebe os dados do formulário
+        $id = $this->input->post('tipo_produto_id');
+
+        $data['tipo_produto_nome'] = $this->input->post('tipo_produto_nome');
+        $data['tipo_produto_status'] = $this->input->post('tipo_produto_status');
+
+        $this->db->where('tipo_produto_id', $id);
+        if ($this->db->update('tipo_produto', $data)) {
+            // Produto Salvo
+            $this->db->select('*');
+            $this->db->where('tipo_produto_status=1');
+            $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
+
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalSalvoUpdate');
+            $this->load->view('adm/tipoProdutosLista', $dados);
+            $this->load->view('inc/footer-adm');
+        } else {
+            // Erro Cadastro
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalErroUpdate');
+            $this->load->view('adm/tipoProdutosAdd');
+            $this->load->view('inc/footer-adm');
+        }
+    }
 
 }
