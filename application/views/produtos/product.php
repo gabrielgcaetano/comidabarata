@@ -1,8 +1,4 @@
 <section id="container" >
-    <!-- **********************************************************************************************************************************************************
-    MAIN CONTENT
-    *********************************************************************************************************************************************************** -->
-    <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
 
@@ -45,13 +41,23 @@
                             <div class="col-sm-8">
                                 <div class="col-sm-2">
                                     <div class="form-group">
-                                        <input type="text" id="quant" name="transacao_quant_produto" 
-                                               class="form-control" size="15" required>
+                                        <input type="text" id="transacao_produto_estoque" name="transacao_produto_estoque" 
+                                               class="form-control" size="15">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-sm-8">
+                            <div class="col-sm-2">
+                                <label for="regiao_id"> Frete </label>
+
+                                <select class="form-control" id="regiao_id" name="regiao_id" >
+                                    <?php foreach ($regiao as $tp) { ?>  
+                                        <option value="<?= $tp->regiao_id; ?>">  <?= $tp->regiao_nome; ?>  - <?= $tp->regiao_preco; ?>  </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-3" style="margin-top: 20px">
                                 <div class="col-sm-1" align="right">
                                     <button type="submit" class="btn btn-md btn-success">Comprar</button>
                                 </div>   
@@ -60,9 +66,6 @@
                         </div>
                     </form>
                 </div>
-
-            </div><!-- /col-lg-3 -->
-
         </section>
     </section>
 </section>

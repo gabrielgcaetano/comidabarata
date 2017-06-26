@@ -19,7 +19,7 @@
                 <div class="col-lg-8 main-chart col-lg-offset-2">
 
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Tipos de Usuários</div>
+                        <div class="panel-heading">Pesquisa</div>
                         <div class="panel-body">
                             <form method="post" action="<?= base_url('user/tipoUserPesquisa') ?>"
                                   enctype="multipart/form-data" style="margin-top: 20px;">

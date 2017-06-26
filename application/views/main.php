@@ -6,7 +6,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 text-right">
-                        <p class="num">Call: +01 123 456 7890</p>
                         <ul class="fh5co-social">
                             <li><a href="#"><i class="icon-twitter"></i></a></li>
                             <li><a href="#"><i class="icon-dribbble"></i></a></li>
@@ -76,7 +75,7 @@
                 </div>
                 <div class="col-md-4 text-center animate-box">
                     <span class="fh5co-counter js-counter" data-from="0" data-to="2039" data-speed="5000" data-refresh-interval="50"></span>
-                    <span class="fh5co-counter-label">kilos de Comida Salvos</span>
+                    <span class="fh5co-counter-label">kilos de Comida Comercializados</span>
                 </div>
 
             </div>

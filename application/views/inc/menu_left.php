@@ -20,7 +20,7 @@
                         <span>Meus Produtos</span>
                     </a>
                     <ul class="sub">
-                        <li><a  href="<?= base_url(); ?>produto/my_adverts">Lista Produtos</a></li>
+                        <li><a  href="<?= base_url(); ?>produto/meusProdutosLista">Lista Produtos</a></li>
                         <li><a  href="<?= base_url(); ?>produto/registerProduct">Adicionar Produtos</a></li>
                         
                     </ul>
@@ -38,7 +38,5 @@
                 </li>
 
             </ul>
-            <!-- sidebar menu end-->
         </div>
     </aside>
-    <!--sidebar end-->

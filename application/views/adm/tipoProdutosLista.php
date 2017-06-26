@@ -5,8 +5,8 @@
             <!--           Menu Superior                 -->
             <div>
                 <ul class="nav nav-pills nav-justified" style="background-color: white">
-                    <li role="presentation" class="active"><a href="<?= base_url(); ?>produto/tipoProdutoLista?situacao">Lista</a></li>
-                    <li role="presentation"><a href="<?= base_url(); ?>produto/tipoProdutoAdd?situacao">Adicionar</a></li>
+                    <li role="presentation" class="active"><a href="<?= base_url(); ?>produto/tipoProdutoLista">Lista</a></li>
+                    <li role="presentation"><a href="<?= base_url(); ?>produto/tipoProdutoAdd">Adicionar</a></li>
                     <li role="presentation"><a></a></li>
                 </ul>
 
@@ -63,7 +63,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div><!-- /col-lg-3 -->
+                </div>
             </div>
         </section>
     </section>

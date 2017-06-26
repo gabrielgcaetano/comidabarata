@@ -36,7 +36,7 @@
 
                     </form>
 
-                </div><!-- /col-lg-3 -->
+                </div>
             </div>
         </section>
     </section>
