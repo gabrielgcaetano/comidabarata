@@ -2,7 +2,7 @@
 ComidaBarata.com - O Projeto Voltado para Sustentabilidade.
 ###################
 
-O sistema irá realizar a comercialização de produtos alimentícios prestes a perder a validade.
+O sistema faz a comercialização de produtos alimentícios prestes a perder a validade.
 
 *********
 Tecnologias Utilizadas
@@ -25,6 +25,6 @@ Execução no Netbeans
 
 - git clone git@github.com:gabrielgcaetano/comidabarata.git
 
-2. Execute o script do Banco de Dados para criar um banco "comidabarata"
+2. Execute o script do Banco de Dados para criar um banco `"comidabarata" <https://github.com/gabrielgcaetano/comidabarata/blob/master/banco/comidabarata.sql>`_
 
 3. Abra o projeto na versão 8 ou superior do Netbeans
