@@ -8,24 +8,25 @@
                           enctype="multipart/form-data">
 
                         <input type="hidden" id="produto_id" name="produto_id" value="<?= $produto[0]->produto_id ?>">
+                        <div class="col-sm-10 col-lg-offset-1">
+                            <h1><?= $produto[0]->produto_nome ?></h1>
+                        </div>
 
-                        <h1><?= $produto[0]->produto_nome ?></h1>
                         <br>
 
-                        <div class="col-sm-12">
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-3">
+                        <div class="col-sm-10 col-lg-offset-1">
+                            <div class="col-sm-4">
                                 <img src="<?= base_url(); ?>images/<?= $produto[0]->produto_foto; ?>" class="img-thumbnail" width="300px" height="300px" >
                             </div>
 
                             <!--Preço-->
 
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <div class="col-sm-1">
                                     <h5> Preço</h5>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <div class="col-sm-8">
                                     <h2 style="color: red"> R$ <?= $produto[0]->produto_preco_novo ?> </h2>
                                 </div>
@@ -33,28 +34,37 @@
 
                             <!--Quantidade-->
 
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <div class="col-sm-1">
                                     <h5> Quant</h5>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
-                                <div class="col-sm-2">
+                            <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input type="text" id="transacao_produto_estoque" name="transacao_produto_estoque" 
+                                        <input type="number" id="transacao_produto_estoque" name="transacao_produto_estoque" 
                                                class="form-control" size="15">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-sm-2">
-                                <label for="regiao_id"> Frete </label>
-
-                                <select class="form-control" id="regiao_id" name="regiao_id" >
-                                    <?php foreach ($regiao as $tp) { ?>  
-                                        <option value="<?= $tp->regiao_id; ?>">  <?= $tp->regiao_nome; ?>  - <?= $tp->regiao_preco; ?>  </option>
-                                    <?php } ?>
-                                </select>
+                            
+                            
+                            <div class="col-sm-6">
+                                <div class="col-sm-1">
+                                    <h5 for="regiao_id"> Frete </h5>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group col-sm-4">
+                                    <select class="form-control col-sm-4" id="regiao_id" name="regiao_id" >
+                                        <?php foreach ($regiao as $tp) { ?>  
+                                            <option value="<?= $tp->regiao_id; ?>">  <?= $tp->regiao_nome; ?>  - <?= $tp->regiao_preco; ?>  </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                                
                             </div>
 
                             <div class="col-sm-3" style="margin-top: 20px">
