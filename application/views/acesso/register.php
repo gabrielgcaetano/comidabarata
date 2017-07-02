@@ -7,9 +7,13 @@
                     <input type="text" class="form-control" id="user_nome" name="user_nome" placeholder="Nome Completo">
                 </div>
                 <div class="form-group text-center">
+                    <label for="user_documento"><h3 class="bordas">CPF/CNPJ</h3></label>
+                    <input type="text" class="form-control" id="user_documento" name="user_documento" placeholder="CPF/CNPJ">
+                </div>
+                <div class="form-group text-center">
                     <label for="user_email"><h3 class="bordas">Email</h3></label>
                     <input type="email" class="form-control" id="user_email" name="user_email" placeholder="Email">
-                </div>
+                </div>             
                 <div class="form-group text-center">
                     <label for="user_senha"><h3 class="bordas">Senha</h3></label>
                     <input type="password" class="form-control" id="user_senha" name="user_senha" placeholder="Password">
@@ -25,7 +29,7 @@
                 </div>
                 <br>
                 <div class="text-center">
-                    <h4 class="bordas"> Ainda já tem cadastro? click aqui </h4>
+                    <h4 class="bordas"> Já tem cadastro? <a href="<?= base_url() ?>user/login"> click aqui </a> </h4>
                 </div>
 
             </form>

@@ -11,7 +11,7 @@
 
         <!-- Bootstrap core CSS -->
         <link href="<?= base_url(); ?>assets-adm/css/bootstrap.css" rel="stylesheet">
-     
+
         <!-- Custom styles for this template -->
         <link href="<?= base_url(); ?>assets-adm/css/style.css" rel="stylesheet">
         <link href="<?= base_url(); ?>assets-adm/css/style-responsive.css" rel="stylesheet">
@@ -56,5 +56,8 @@
                     </ul>
                 </div>
             </div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            
         </header>
         <!--header end-->

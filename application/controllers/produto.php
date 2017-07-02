@@ -23,6 +23,11 @@ class Produto extends CI_Controller {
         $this->db->select('*');
         $this->db->where('produto_status', "1");
         $dados['produto'] = $this->db->get('produto')->result();
+        
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $this->db->where('produto_destaque', "1");
+        $dados['produto_destaque'] = $this->db->get('produto', 3)->result();
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -46,6 +51,11 @@ class Produto extends CI_Controller {
         $this->db->select('*');
         $this->db->where('produto_status', "1");
         $dados['produto'] = $this->db->get('produto')->result();
+        
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $this->db->where('produto_destaque', "1");
+        $dados['produto_destaque'] = $this->db->get('produto', 3)->result();
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');

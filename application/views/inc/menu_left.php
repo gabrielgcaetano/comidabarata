@@ -36,6 +36,18 @@
                         
                     </ul>
                 </li>
+                
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-desktop"></i>
+                        <span> Gerencial </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="<?= base_url(); ?>gerencial/grafico_marcas_piechart"> Gráficos Marcas </a></li>
+                        <li><a  href="<?= base_url(); ?>gerencial/grafico_view_barra"> Gráficos de Produtos Populares </a></li>
+                        
+                    </ul>
+                </li>
 
             </ul>
         </div>
