@@ -1,3 +1,5 @@
+</div>
+
 <!--footer start-->
 <footer class="site-footer navbar navbar-inverse navbar-fixed-bottom">
     <div class="text-center">

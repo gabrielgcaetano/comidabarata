@@ -1,24 +1,8 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
-     */
     public function index() {
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -26,15 +10,14 @@ class User extends CI_Controller {
         $this->load->view('inc/footer-adm');
     }
 
-    public function login() {
+    public function redirecionamento(){
+        $this->db->where('user_id', $_SESSION['user_id']);
+        $dados['user'] = $this->db->get('user')->result();
 
-        $this->load->view('inc/head-acesso');
-        $this->load->view('acesso/login');
-        $this->load->view('inc/footer-acesso');
+        $this->load->view('redirecionamento', $dados);
     }
-
+    
     public function login_entry() {
-
         // Pega os dados do Formulario de Login
         $user_email = $this->input->post('user_email');
         $user_senha = $this->input->post('user_senha');
@@ -52,9 +35,8 @@ class User extends CI_Controller {
 
             $this->session->set_userdata('user_id', $dados['user_id']);
 
-            redirect('produto');
+            redirect('user/redirecionamento');
         } else {
-
             redirect('main?ErroSenha');
         }
     }
@@ -65,22 +47,15 @@ class User extends CI_Controller {
      * =============================================    
      */
 
-    public function register() {
-
-        $this->load->view('inc/head-acesso');
-        $this->load->view('acesso/register');
-        $this->load->view('inc/footer-acesso');
-    }
-
     public function register_save() {
         // recebe os dados do formulário
         $data['user_nome'] = $this->input->post('user_nome');
         $data['user_email'] = $this->input->post('user_email');
         $data['user_senha'] = $this->input->post('user_senha');
-
-
+        $data['user_documento'] = $this->input->post('user_documento');
+        $data['user_tipo_user_id'] = $this->input->post('user_tipo_user_id');
+        
         if ($this->db->insert('user', $data)) {
-
             redirect(base_url('produto'));
         } else {
             redirect(base_url(''));

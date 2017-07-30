@@ -1,7 +1,6 @@
 <section id="container" >
     <section id="main-content">
         <section class="wrapper">
-
             <!--           Menu Superior                 -->
             <div>
                 <ul class="nav nav-pills nav-justified" style="background-color: white">
@@ -11,7 +10,7 @@
                 </ul>
 
                 <div class="row">
-                    <div class="col-lg-8 main-chart col-lg-offset-2">
+                    <div class="col-lg-10 main-chart col-lg-offset-1">
 
                         <div class="panel panel-primary">
                             <div class="panel-heading">Pesquisar</div>
@@ -35,7 +34,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-8 col-lg-offset-2" >
+                <div class="col-lg-10 col-lg-offset-1" >
 
                     <div class="panel panel-default">
                         <!-- Default panel contents -->

@@ -1,6 +1,6 @@
 <section id="container" >
     <section id="main-content">
-        <section class="wrapper">
+        <section class="wrapper col-sm-12 col-lg-pull-1">
             <div class="alert alert-link" role="alert">
                 <ol class="breadcrumb" style="background-color: #c0c0c0">
                     <li><a href="<?= base_url() ?>">Home</a></li>
@@ -8,7 +8,7 @@
                 </ol>
             </div>
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 main-chart">
+                <div class="col-lg-12 main-chart">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Pesquisar</div>
                         <div class="panel-body">
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-8 col-lg-offset-1" >
+                <div class="col-sm-9 " >
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
                         <div class="panel-heading"><h2> Ofertas </h2></div>
@@ -60,7 +60,7 @@
 
                     </div>
                 </div>
-                <div class="col-sm-2" >
+                <div class="col-lg-3" >
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
                         <div class="panel-heading text-center" style="color: red"><h3> Destaque </h3></div>
@@ -76,9 +76,9 @@
                                                     <div class="thumbnail">
                                                         <img src="<?= base_url(); ?>images/<?= $prodd->produto_foto; ?>" class="img-rounded" width="120">
                                                         <div class="caption">
-                                                            <h4 class="text-center" style="color: red;">R$ <?= $prodd->produto_preco_novo; ?></h4>
+                                                            <h3 class="text-center" style="color: red;">R$ <?= $prodd->produto_preco_novo; ?></h3>
                                                             <br>
-                                                            <p class="text-center" ><a href="<?= base_url('produto/formUpdate/' . $prodd->produto_id) ?>" class="btn btn-sm btn-primary btn-group">Comprar</a></p>
+                                                            <p class="text-center" ><a href="<?= base_url('produto/formUpdate/' . $prodd->produto_id) ?>" class="btn btn-lg btn-primary btn-group">Comprar</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
