@@ -7,7 +7,7 @@
         <meta name="author" content="Dashboard">
         <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-        <title>COMIDABARATA.COM &mdash; Anuncie agora é grátis</title>
+        <title>COMIDABARATA.COM.BR &mdash; Anuncie agora é grátis</title>
 
         <!-- Bootstrap core CSS -->
         <link href="<?= base_url(); ?>assets-adm/css/bootstrap.css" rel="stylesheet">
@@ -15,6 +15,7 @@
         <!-- Custom styles for this template -->
         <link href="<?= base_url(); ?>assets-adm/css/style.css" rel="stylesheet">
         <link href="<?= base_url(); ?>assets-adm/css/style-responsive.css" rel="stylesheet">
+        <link href="<?= base_url(); ?>assets-adm/css/style-comidabarata.css" rel="stylesheet">
 
         <script src="<?= base_url(); ?>assets-adm/js/chart-master/Chart.js"></script>
 
@@ -28,7 +29,7 @@
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="<?= base_url(); ?>" class="logo"><b>COMIDABARATA<span>.com</span></b></a>
+            <a href="<?= base_url(); ?>" class="logo"><b>COMIDABARATA<span>.com.br</span></b></a>
             <!--logo end-->
 
             <div class="btn-group pull-right top-menu" role="group" aria-label="...">

@@ -5,7 +5,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
 
             <p class="centered"><a href="profile.html"><img src="<?= base_url(); ?>assets-adm/img/milho.png" class="img-circle" width="60"></a></p>
-            <h5 class="centered">Gabriel Caetano</h5>
+            <h5 class="centered"> <?php $_SESSION['user_nome'] ?> </h5>
 
             <li class="mt">
                 <a class="active" href="<?= base_url(); ?>produto/all_adverts">
@@ -53,4 +53,4 @@
     </div>
 </aside>
 
-<div class="col-lg-12">
+<div class="col-lg-9 col-lg-offset-1">

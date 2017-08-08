@@ -3,7 +3,7 @@
 <!--footer start-->
 <footer class="site-footer navbar navbar-inverse navbar-fixed-bottom">
     <div class="text-center">
-        2017 - COMIDABARATA.com - Todos Direitos Reservados
+        <h5>2017 - COMIDABARATA.com - Todos Direitos Reservados</h5>
     </div>
 </footer>
 <!--footer end-->

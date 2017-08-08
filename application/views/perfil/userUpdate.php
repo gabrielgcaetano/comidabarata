@@ -15,8 +15,8 @@
 
                         <input type="hidden" id="user_id" name="user_id" value="<?= $user[0]->user_id ?>">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"> Dados Acesso </div>
+                        <div class="panel panel-default" style="border-color:#4e8621">
+                            <div class="panel-heading" style="color: white; background-color:#4e8621"> Dados Acesso </div>
                             <div class="panel-body">
                                 <div class="col-sm-8">
                                     <div class="form-group">
@@ -29,15 +29,15 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label for="user_senha"> Senha </label>
-                                        <input type="password" id="user_senha" name="user_senha" 
-                                               class="form-control" value="<?= $user[0]->user_senha ?>" required>
+                                        <input type="password" placeholder="Senha" id="user_senha" name="user_senha" 
+                                               class="form-control" value="<?= $user[0]->user_senha ?>"  required>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"> Dados Pessoais</div>
+                        <div class="panel panel-default" style="border-color:#4e8621">
+                            <div class="panel-heading" style="color: white; background-color:#4e8621"> Dados Pessoais</div>
                             <div class="panel-body">
                                 <div class="col-sm-9">
                                     <div class="form-group">
@@ -110,8 +110,8 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading"> Endereço </div>
+                        <div class="panel panel-default" style="border-color:#4e8621">
+                            <div class="panel-heading" style="color: white; background-color:#4e8621"> Endereço </div>
                             <div class="panel-body">
                                 <div class="col-sm-4">
                                     <div class="form-group">
@@ -129,7 +129,10 @@
                         <div class="col-sm-12" align="right">
                             <button type="submit" class="btn btn-lg btn-info">Salvar</button>
                         </div>    
-
+                        <div style="height:150px">
+                            <br>
+                        </div>
+                            
                         <script>
                             function vCampo(el, er) {
                                 var e = $(el).val().replace(er, '');

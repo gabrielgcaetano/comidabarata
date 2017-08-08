@@ -119,9 +119,6 @@
         </div>
     </div>
 </div>
-
-
-
 <div id="page">
     <nav class="fh5co-nav" role="navigation">
         <div class="top">
@@ -141,7 +138,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-1">
-                        <div id="fh5co-logo"><a href="index.html">COMIDABARATA<span>.com</span></a></div>
+                        <div id="fh5co-logo"><a href="index.html">COMIDABARATA<span>.com.br</span></a></div>
                     </div>
                     <div class="col-xs-11 text-right menu-1">
                         <ul>
