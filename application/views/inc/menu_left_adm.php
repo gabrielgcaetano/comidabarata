@@ -5,13 +5,16 @@
         <ul class="sidebar-menu" id="nav-accordion">
 
             <p class="centered"><a href="profile.html"><img src="<?= base_url(); ?>assets-adm/img/milho.png" class="img-circle" width="60"></a></p>
-            <h5 class="centered"> <?php echo $_SESSION['user_nomee'] ?> </h5>
+            <h5 class="centered"> <?php echo $_SESSION['user_nome'] ?> </h5>
 
             <li class="mt">
-                <a class="active" href="<?= base_url(); ?>produto/my_adverts">
+                <a class="active" href="<?= base_url(); ?>produto/">
                     <i class="fa fa-dashboard"></i>
                     <span>Home</span>
                 </a>
+            </li>
+            <li class="sub-menu">
+                <a  href="<?= base_url(); ?>user/tipoUserLista">Tipo de Usuário</a>
             </li>
             <li class="sub-menu">
                 <a  href="<?= base_url(); ?>produto/tipoProdutoLista">Tipo de Produtos</a>

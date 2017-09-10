@@ -27,24 +27,10 @@
                                                class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="produto_nome">Detalhes</label>
-                                        <input type="text" id="produto_nome" name="produto_descricao" 
-                                               class="form-control" required>
-                                    </div>
-                                </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <div class="form-group">
-                                        <label for="produto_preco_velho"> Preço Original </label>
-                                        <input type="text" id="produto_preco_velho" name="produto_preco_velho" 
-                                               class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="produto_preco_novo"> Preço Atual </label>
+                                        <label for="produto_preco_novo"> Preço </label>
                                         <input type="text" id="produto_preco_novo" name="produto_preco_novo" 
                                                class="form-control" required>
                                     </div>
@@ -53,21 +39,13 @@
                                 <div class="col-sm-4">
                                     <label for="produto_tipo_produto"> Tipo Produto </label>
 
-                                    <select class="form-control" id="produto_tipo_produto_sub_id" name="produto_tipo_produto_sub_id" >
-                                        <?php foreach ($tipo_produto_sub as $tp) { ?>  
-                                            <option value="<?= $tp->tipo_produto_sub_id; ?>">  <?= $tp->tipo_produto_nome; ?> - <?= $tp->tipo_produto_sub_nome; ?> </option>
+                                    <select class="form-control" id="produto_tipo_produto" name="produto_tipo_produto" >
+                                        <?php foreach ($tipo_produto as $tp) { ?>  
+                                            <option value="<?= $tp->tipo_produto_id; ?>">  <?= $tp->tipo_produto_id; ?>  - <?= $tp->tipo_produto_nome; ?>  </option>
                                         <?php } ?>
                                     </select>
                                 </div>
 
-                                <div class="col-sm-8">
-                                    <div class="form-group">
-                                        <label for="produto_preco_novo"> Data de Validade </label>
-                                        <input type="date" id="produto_validade" name="produto_validade" 
-                                               class="form-control" required>
-                                    </div>
-                                </div>
-                                
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="produto_foto"> Foto </label>
