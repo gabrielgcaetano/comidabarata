@@ -55,7 +55,7 @@
                                     <tr>
                                         <td><p class="centered"><a href="#"><img src="<?= base_url(); ?>images/<?= $prod->produto_foto; ?>" class="img-responsive" width="80"></a></p></td>
                                         <td><br><br><p class=""> <?= $prod->produto_nome; ?> </p></td>
-                                        <td><br><br><p class=""> <?= $prod->produto_preco_novo; ?> </p></td>
+                                        <td><br><br><p class=""> <?= number_format($prod->produto_preco_novo, 2); ?> </p></td>
                                         <td><br><a href="<?= base_url('produto/formUpdate/' . $prod->produto_id) ?>" class="btn btn-lg btn-group bottom-verde">Detalhes</a> </td> 
                                     </tr>    
                                 <?php } ?>

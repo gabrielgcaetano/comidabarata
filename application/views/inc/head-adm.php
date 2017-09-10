@@ -40,7 +40,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="" href="<?= base_url(); ?>user/UserUpdate">Perfil</a></li>
-                        <li><a class="" href="<?= base_url(); ?>">Sair</a></li>
+                        <li><a class="" href="<?= base_url(); ?>User/logout">Sair</a></li>
                     </ul>
                 </div>
             </div>
