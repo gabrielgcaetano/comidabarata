@@ -8,6 +8,7 @@ class Produto_model extends CI_Model {
     }
 
     public function tipoProdutosSalvar() {
+
         // recebe os dados do formulário
         $data['tipo_produto_nome'] = $this->input->post('tipo_produto_nome');
         $data['tipo_produto_status'] = 1;
@@ -30,15 +31,15 @@ class Produto_model extends CI_Model {
     }
 
     public function get_qtd_produtos() {
-        $this->db->select('*');
+        $this->db->select('count(*) as total');
         $this->db->where('produto_status', "1");
-        $dados['produto'] = $this->db->get('produto')->result();
-        return $count = count($dados['produto']);
+        return $this->db->get('produto')->result();
     }
 
-    public function get_produtos_pag($value, $reg_p_pag) {
+    public function get_produtos_pag($value, $reg_p_pag, $categoria) {
         $this->db->select('*');
         $this->db->where('produto_status', "1");
+        $this->db->where('produto_tipo_produto_sub_id', $categoria);
         $this->db->limit($reg_p_pag, $value);
         return $dados['produto'] = $this->db->get('produto')->result();
     }

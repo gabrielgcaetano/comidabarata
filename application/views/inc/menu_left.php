@@ -4,11 +4,11 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-            <p class="centered"><a href="profile.html"><img src="<?= base_url(); ?>assets-adm/img/milho.png" class="img-circle" width="60"></a></p>
-            <h5 class="centered"> <?php $_SESSION['user_nome'] ?> </h5>
+            <p class="centered"><a href="#"><img src="<?= base_url(); ?>assets-adm/img/milho.png" class="img-circle" width="60"></a></p>
+            <h5 class="centered"> <?php echo $_SESSION['user_nomee'] ?> </h5>
 
             <li class="mt">
-                <a class="active" href="<?= base_url(); ?>produto/all_adverts">
+                <a class="active" href="#">
                     <i class="fa fa-dashboard"></i>
                     <span>Home</span>
                 </a>
@@ -21,11 +21,18 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="<?= base_url(); ?>produto/meusProdutosLista">Lista Produtos</a></li>
-                    <li><a  href="<?= base_url(); ?>produto/registerProduct">Adicionar Produtos</a></li>
+                    <li><a  href="<?= base_url(); ?>produto/meusProdutosAdd">Adicionar Produtos</a></li>
 
                 </ul>
             </li>
-            <li class="sub-menu">
+            
+            <li class="mt">
+                <a class="" href="<?= base_url(); ?>produto/cupomPorEmpresa">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Baixa Cupom</span>
+                </a>
+            </li>
+<!--            <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
                     <span>Administrativo</span>
@@ -35,9 +42,9 @@
                     <li><a  href="<?= base_url(); ?>user/tipoUserLista">Tipo de Usuário</a></li>
 
                 </ul>
-            </li>
+            </li>-->
 
-            <li class="sub-menu">
+<!--            <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
                     <span> Gerencial </span>
@@ -47,7 +54,7 @@
                     <li><a  href="<?= base_url(); ?>gerencial/grafico_view_barra"> Gráficos de Produtos Populares </a></li>
 
                 </ul>
-            </li>
+            </li>-->
 
         </ul>
     </div>

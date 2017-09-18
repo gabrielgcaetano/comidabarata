@@ -1,34 +1,50 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()	{
-            $this->load->view('inc/head-website');
-            $this->load->view('main');
-            $this->load->view('inc/footer-website');
-	}
+    public function index() {
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $this->db->order_by("produto_data_cadastro", "asc");
+        $dados['produto'] = $this->db->get('produto')->result();
         
-        public function login() {         
-            $this->load->view('inc/head-website');
-            $this->load->view('main');
-            $this->load->view('modal/modalSalvoUpdate');
-            $this->load->view('inc/footer-website');
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $this->db->where('produto_destaque', "1");
+        $dados['produto_destaque'] = $this->db->get('produto', 12)->result();
+
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $this->db->where('produto_validade_Bol', "1");
+        $this->db->order_by("produto_data_cadastro", "asc");
+        $dados['produto_validade'] = $this->db->get('produto', 12)->result();
+
+        $this->db->select('*');
+        $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
+        $this->db->where('transacao_status', "0");
+        $this->db->where('transacao_status_item', "1");
+        $this->db->where('transacao_token', "");
+        $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+        $data['carrinho'] = $this->db->get('transacao')->result();
+
+        if (isset($_SESSION['user_nomee'])) {
+            
+        } else {
+            $this->session->set_userdata('user_nomee', "");
         }
+
+        $this->load->view('inc/head_main');
+        $this->load->view('inc/nav_superior', $data);
+        $this->load->view('home', $dados);
+        $this->load->view('inc/footer_main');
+    }
+
+    public function login() {
+        $this->load->view('inc/head-website');
+        $this->load->view('main');
+        $this->load->view('inc/footer-website');
+    }
 
 }

@@ -97,15 +97,18 @@
                                                class="form-control" value="<?= $user[0]->user_tel_2 ?>">
                                     </div>
                                 </div>
-
-
-
                                 <div class="col-sm-3">
                                     <label for="user_status"> Desativar Conta </label>
                                     <select class="form-control" id="user_status" name="user_status" >
                                         <option value="0"> Não </option>
                                         <option value="1"> Sim </option>
                                     </select>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="user_foto"> Foto </label>
+                                        <input type="file" id="user_foto" name="user_foto" class="form-control" value="<?= $user[0]->user_foto ?>">
+                                    </div>
                                 </div>
                             </div>
                         </div>

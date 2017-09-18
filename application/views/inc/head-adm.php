@@ -20,7 +20,7 @@
         <script src="<?= base_url(); ?>assets-adm/js/chart-master/Chart.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="<?= base_url(); ?>js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -40,7 +40,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="" href="<?= base_url(); ?>user/UserUpdate">Perfil</a></li>
-                        <li><a class="" href="<?= base_url(); ?>">Sair</a></li>
+                        <li><a class="" href="<?= base_url(); ?>User/logout">Sair</a></li>
                     </ul>
                 </div>
             </div>

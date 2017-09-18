@@ -99,7 +99,7 @@ $db['default'] = array(
 //    'dsn' => '',
 //    'hostname' => 'mysql.hostinger.com.br',
 //    'username' => 'u646864213_cb',
-//    'password' => 'lQOsKb9gxgQGpv3Bpf',
+//    'password' => 'Inglaterra@1995',
 //    'database' => 'u646864213_cb',
 //    'dbdriver' => 'mysqli',
 //    'dbprefix' => '',
@@ -117,24 +117,24 @@ $db['default'] = array(
 //    'save_queries' => TRUE
 //);
 
-$db['banco_2'] = array(
-    'dsn' => '',
-    'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'database' => 'transportadora',
-    'dbdriver' => 'mysqli',
-    'dbprefix' => '',
-    'pconnect' => FALSE,
-    'db_debug' => (ENVIRONMENT !== 'production'),
-    'cache_on' => FALSE,
-    'cachedir' => '',
-    'char_set' => 'utf8',
-    'dbcollat' => 'utf8_general_ci',
-    'swap_pre' => '',
-    'encrypt' => FALSE,
-    'compress' => FALSE,
-    'stricton' => FALSE,
-    'failover' => array(),
-    'save_queries' => TRUE
-);
+//$db['banco_2'] = array(
+//    'dsn' => '',
+//    'hostname' => 'localhost',
+//    'username' => 'root',
+//    'password' => '',
+//    'database' => 'transportadora',
+//    'dbdriver' => 'mysqli',
+//    'dbprefix' => '',
+//    'pconnect' => FALSE,
+//    'db_debug' => (ENVIRONMENT !== 'production'),
+//    'cache_on' => FALSE,
+//    'cachedir' => '',
+//    'char_set' => 'utf8',
+//    'dbcollat' => 'utf8_general_ci',
+//    'swap_pre' => '',
+//    'encrypt' => FALSE,
+//    'compress' => FALSE,
+//    'stricton' => FALSE,
+//    'failover' => array(),
+//    'save_queries' => TRUE
+//);

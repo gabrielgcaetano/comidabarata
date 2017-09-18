@@ -15,7 +15,7 @@ foreach ($user as $user) {
         $this->load->view('inc/footer-adm');
     } else if ($user->user_tipo_user_id == 2) {
         // Usuário Normal
-        redirect(base_url('produto/pagTodosProdutos')) ;
+        redirect('main');
     } else {
         // Usúario Empresa
         $this->db->select('*');
