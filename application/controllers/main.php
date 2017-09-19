@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
     public function index() {
+        
+        
+        // Oi
         $this->db->select('*');
         $this->db->where('produto_status', "1");
         $this->db->order_by("produto_data_cadastro", "asc");

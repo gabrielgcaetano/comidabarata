@@ -5,7 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Gerencial extends CI_Controller {
 
     /**
-     * Index Page for this controller.
+     * Index Page for this controller. 
+     * blah blah blah
      *
      * Maps to the following URL
      * 		http://example.com/index.php/welcome
