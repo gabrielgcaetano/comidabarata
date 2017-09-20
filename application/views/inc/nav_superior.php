@@ -157,7 +157,7 @@
                                 <a href="<?= base_url(); ?>" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
                             </li>
                             <li class="dropdown yamm">
-                                <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Alimentos</a>
+                                <a href="<?= base_url(); ?>" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Alimentos</a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content ">
@@ -186,7 +186,7 @@
 
                             </li>
                             <li class="dropdown">
-                                <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Congelados </a>
+                                <a href="<?= base_url(); ?>"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Congelados </a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content">
@@ -205,7 +205,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Bebidas </a>
+                                <a href="<?= base_url(); ?>"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Bebidas </a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content">
@@ -224,7 +224,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="category.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Perfumaria</a>
+                                <a href="<?= base_url(); ?>" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Perfumaria</a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content">
@@ -242,7 +242,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="contact.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Limpeza</a>
+                                <a href="<?= base_url(); ?>" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Limpeza</a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content">
@@ -260,7 +260,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="contact.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Bebês</a>
+                                <a href="<?= base_url(); ?>" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Bebês</a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content">
@@ -279,7 +279,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="contact.html" data-hover="dropdown" data-toggle="dropdown">Feira</a>
+                                <a href="<?= base_url(); ?>" data-hover="dropdown" data-toggle="dropdown">Feira</a>
                                 <ul class="dropdown-menu pages">
                                     <li>
                                         <div class="yamm-content">

@@ -143,6 +143,10 @@ class Produto extends CI_Controller {
         $this->db->order_by("produto_data_cadastro", "asc");
         $dados['produto_validade'] = $this->db->get('produto', 12)->result();
 
+        if (!isset($_SESSION['user_nomee'])) {
+            $this->session->set_userdata('user_nomee', "");
+        }
+        
         $this->load->view('inc/head_main');
         $this->load->view('inc/nav_superior', $data);
         $this->load->view('produtos/produtoDetalhe', $dados);
@@ -326,7 +330,7 @@ class Produto extends CI_Controller {
 
     public function carrinho() {
 //        $this->verifica_sessao();
-        if (isset($_SESSION['user_nomee'])) {
+        if (isset($_SESSION['user_id']) != "") {
 
             // recebe os dados do formulário
             $data['transacao_produto_id'] = $this->input->post('produto_id');
