@@ -32,6 +32,17 @@
                     <span>Baixa Cupom</span>
                 </a>
             </li>
+            
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-desktop"></i>
+                    <span>Gerencial</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="<?= base_url(); ?>Gerencial/vendas">Total Vendas</a></li>
+                </ul>
+            </li>
+            
 <!--            <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>

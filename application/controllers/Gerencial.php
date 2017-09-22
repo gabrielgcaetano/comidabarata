@@ -30,11 +30,46 @@ class Gerencial extends CI_Controller {
         $this->load->view('gerencial/grafico_marcas');
         $this->load->view('inc/footer-adm');
     }
-    
+
     public function grafico_view_barra() {
+        $this->db->select('SELECT SUM(produto_preco_novo) FROM transacao t 
+        INNER JOIN produto p on t.transacao_produto_id = p.produto_id 
+        WHERE t.transacao_empresa_id = 15 
+        AND t.transacao_status = 0 
+        AND t.transacao_status_item = 0 
+        ');
+
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
         $this->load->view('gerencial/grafico_view_barra');
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function vendas() {
+        $valor = 0;
+        $total = 0;
+        $valorComissao = 0;
+        $start_date = "01-09-2017";
+        $end_date = "30-09-2017";
+
+        $this->db->select('transacao_produto_quantidade, produto_preco_novo');
+        $this->db->where('transacao_empresa_id', $this->session->userdata('user_id'));
+        $this->db->where('transacao_status', "0");
+        $this->db->where('transacao_status_item', "0");
+        $this->db->where('transacao_data BETWEEN "' . date('Y-m-d H:m:s', strtotime($start_date)) . '" and "' . date('Y-m-d H:m:s', strtotime($end_date)) . '"');
+        $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+        $data['transacao'] = $this->db->get('transacao')->result();
+
+        foreach ($data['transacao'] as $trans) {
+            $total = $total + ($trans->transacao_produto_quantidade * $trans->produto_preco_novo);
+        }
+        $data['valorTotal'] = $total;
+        $data['valorComissao'] = $total * 0.05;
+
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left');
+        $this->load->view('gerencial/vendasPorData', $data);
         $this->load->view('inc/footer-adm');
     }
 

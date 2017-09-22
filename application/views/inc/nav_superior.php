@@ -101,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <div class="image">
-                                                <a href="<?= base_url(); ?>produto/detalheProduto/<?= $car->produto_id ?>"><img src="<?= base_url(); ?>images/<?= $car->produto_foto; ?>" alt=""></a>
+                                                <a href="<?= base_url(); ?>produto/detalheProduto/<?= $car->produto_id ?>"><img src="<?= base_url(); ?>images/produto/<?= $car->produto_foto; ?>" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="col-xs-7">

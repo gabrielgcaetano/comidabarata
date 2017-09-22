@@ -2,11 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
+<style>
+    /*Esconde a dive de classe Overlay caso seja identificado que o width Mobile maximo deseja igual ou menor que 980px*/
+    @media only screen and (max-width: 980px){
+        .overlay { display: none; }
+    }
+</style>
+
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
     <div class="container">
         <div class="row">
             <!-- ============================================== SIDEBAR ============================================== -->	
-            <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
+            <div class="col-xs-12 col-sm-12 col-md-3 sidebar overlay">
 
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 <div class="side-menu animate-dropdown outer-bottom-xs">
