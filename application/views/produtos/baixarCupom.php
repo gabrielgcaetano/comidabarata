@@ -80,9 +80,9 @@
                                                             <td><br><br><p class="text-center"> <?= $item->transacao_produto_quantidade; ?> </p></td>
                                                             <td>
                                                                 <ul><p><s><?= number_format($item->produto_preco_velho, 2); ?> </s></p></ul>
-                                                                <ul><p><?= number_format($item->produto_preco_novo, 2); ?></p></ul>
-                                                            <td><br><br><p class="text-center"> <?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_novo), 2); ?> </p></td>
-                                                            <td><br><br><p class="text-center"><?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_velho) - (($item->transacao_produto_quantidade * $item->produto_preco_novo)), 2); ?> </p></td>
+                                                                <ul><p><?= number_format($item->produto_preco_venda, 2); ?></p></ul>
+                                                            <td><br><br><p class="text-center"> <?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_venda), 2); ?> </p></td>
+                                                            <td><br><br><p class="text-center"><?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_velho) - (($item->transacao_produto_quantidade * $item->produto_preco_venda)), 2); ?> </p></td>
                                                             <td><br><a href="<?= base_url('produto/baixarItem/' . $item->transacao_token ."-".$item->transacao_produto_id ) ?>" class="btn btn-lg btn-group bottom-verde">Baixar</a> </td> 
 
                                                         </tr>    
@@ -138,7 +138,7 @@
                                                         <tr>
                                                             <td><p class="centered"><a href="#"><img src="<?= base_url(); ?>images/produto/<?= $prod->produto_foto; ?>" class="img-responsive" width="80"></a></p></td>
                                                             <td><br><br><p class=""> <?= $prod->produto_nome; ?> </p></td>
-                                                            <td><br><br><p class=""> <?= number_format($prod->produto_preco_novo, 2); ?> </p></td>
+                                                            <td><br><br><p class=""> <?= number_format($prod->produto_preco_venda, 2); ?> </p></td>
                                                             <td><br><a href="<?= base_url('produto/formUpdate/' . $prod->produto_id) ?>" class="btn btn-lg btn-group bottom-verde">Detalhes</a> </td> 
                                                         </tr>    
             <?php } ?>

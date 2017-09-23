@@ -32,7 +32,7 @@ class Gerencial extends CI_Controller {
     }
 
     public function grafico_view_barra() {
-        $this->db->select('SELECT SUM(produto_preco_novo) FROM transacao t 
+        $this->db->select('SELECT SUM(produto_preco_venda) FROM transacao t 
         INNER JOIN produto p on t.transacao_produto_id = p.produto_id 
         WHERE t.transacao_empresa_id = 15 
         AND t.transacao_status = 0 
@@ -52,7 +52,7 @@ class Gerencial extends CI_Controller {
         $start_date = "01-09-2017";
         $end_date = "30-09-2017";
 
-        $this->db->select('transacao_produto_quantidade, produto_preco_novo');
+        $this->db->select('transacao_produto_quantidade, produto_preco_venda');
         $this->db->where('transacao_empresa_id', $this->session->userdata('user_id'));
         $this->db->where('transacao_status', "0");
         $this->db->where('transacao_status_item', "0");
@@ -61,7 +61,7 @@ class Gerencial extends CI_Controller {
         $data['transacao'] = $this->db->get('transacao')->result();
 
         foreach ($data['transacao'] as $trans) {
-            $total = $total + ($trans->transacao_produto_quantidade * $trans->produto_preco_novo);
+            $total = $total + ($trans->transacao_produto_quantidade * $trans->produto_preco_venda);
         }
         $data['valorTotal'] = $total;
         $data['valorComissao'] = $total * 0.05;

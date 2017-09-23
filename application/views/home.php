@@ -278,7 +278,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                         <div class="product-price">	
                                                             <span class="price">
-                                                                R$ <?= number_format($prod->produto_preco_novo, 2); ?></span>
+                                                                R$ <?= number_format($prod->produto_preco_venda, 2); ?></span>
                                                             <span class="price-before-discount">R$ <?= number_format($prod->produto_preco_velho, 2); ?></span>
 
                                                         </div><!-- /.product-price -->
@@ -316,7 +316,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             <div class="product-price">	
                                                 <span class="price">
-                                                    R$ <?= number_format($prodd->produto_preco_novo, 2); ?>				</span>
+                                                    R$ <?= number_format($prodd->produto_preco_venda, 2); ?>				</span>
                                                 <span class="price-before-discount">R$ <?= number_format($prodd->produto_preco_velho, 2); ?></span>
 
                                             </div><!-- /.product-price -->
@@ -369,7 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             <div class="product-price">	
                                                 <span class="price">
-                                                    R$ <?= number_format($prod_val->produto_preco_novo, 2); ?>				</span>
+                                                    R$ <?= number_format($prod_val->produto_preco_venda, 2); ?>				</span>
                                                 <span class="price-before-discount">R$ <?= number_format($prod_val->produto_preco_velho, 2); ?></span>
 
                                             </div><!-- /.product-price -->

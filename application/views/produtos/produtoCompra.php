@@ -50,7 +50,7 @@
                                                 <strike><h3 class="text-center" style="color: black;">R$ <?= $produto[0]->produto_preco_velho ?></h3></strike>
                                             </div>
                                             <div class="col-lg-6">
-                                                <h2 class="text-center" style="color: slategrey;">R$ <?= $produto[0]->produto_preco_novo ?></h2>
+                                                <h2 class="text-center" style="color: slategrey;">R$ <?= $produto[0]->produto_preco_venda ?></h2>
                                             </div>
                                        
                                             
@@ -84,7 +84,7 @@
                                                     <img src="<?= base_url(); ?>images/<?= $prodd->produto_foto; ?>" class="img-rounded" width="120">
 
                                                     <div class="caption">
-                                                        <h3 class="text-center" style="color: red;">R$ <?= $prodd->produto_preco_novo; ?></h3>
+                                                        <h3 class="text-center" style="color: red;">R$ <?= $prodd->produto_preco_venda; ?></h3>
                                                         <br>
                                                         <p class="text-center" ><a href="<?= base_url('produto/formUpdate/' . $prodd->produto_id) ?>" class="btn btn-lg btn-group" style="background-color:#4e8621; color: white">Comprar</a></p>
                                                     </div>

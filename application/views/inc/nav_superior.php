@@ -76,7 +76,7 @@
                     $total = 0;
                     $totalItens = 0;
                     foreach ($carrinho as $car) {
-                        $total = $total + ($car->transacao_produto_quantidade * $car->produto_preco_novo);
+                        $total = $total + ($car->transacao_produto_quantidade * $car->produto_preco_venda);
                         $totalItens = $totalItens + $car->transacao_produto_quantidade;
                     }
                     ?>
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="col-xs-7">
                                             <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $car->produto_id ?>"><?= substr($car->produto_nome, 0, 12) ?></a></h3>
-                                            <div class="price">R$ <?= number_format(($car->transacao_produto_quantidade * $car->produto_preco_novo), 2); ?>  </div>
+                                            <div class="price">R$ <?= number_format(($car->transacao_produto_quantidade * $car->produto_preco_venda), 2); ?>  </div>
                                             <br>
                                         </div>
                                         <div class="col-xs-1 action">

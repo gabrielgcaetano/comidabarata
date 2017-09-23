@@ -146,7 +146,7 @@ class Produto extends CI_Controller {
         if (!isset($_SESSION['user_nomee'])) {
             $this->session->set_userdata('user_nomee', "");
         }
-        
+
         $this->load->view('inc/head_main');
         $this->load->view('inc/nav_superior', $data);
         $this->load->view('produtos/produtoDetalhe', $dados);
@@ -193,22 +193,22 @@ class Produto extends CI_Controller {
             $this->db->where('transacao_token', $token);
             $this->db->where('transacao_produto_id', $produto_id);
             if ($this->db->update('transacao', $dado)) {
-                
+
                 $this->db->where('transacao_token', $token);
                 $this->db->where('transacao_status_item', '1');
                 $dataa['transacao'] = $this->db->get('transacao')->result();
-                
+
                 $totall = count($dataa['transacao']);
-                
+
                 if ($totall == 0) {
                     $dadu['cupom_status'] = '0';
-                    
+
                     $this->db->where('cupom_token', $token);
                     if ($this->db->update('cupom', $dadu)) {
                         redirect('produto/cupomPorEmpresa');
                     }
                 }
-                
+
                 redirect('produto/cupomPorEmpresa');
             }
         } else {
@@ -264,7 +264,7 @@ class Produto extends CI_Controller {
 
 // recebe os dados do formulário
         $data['produto_nome'] = $this->input->post('produto_nome');
-        $data['produto_preco_novo'] = $this->input->post('produto_preco_novo');
+        $data['produto_preco_venda'] = $this->input->post('produto_preco_venda');
         $data['produto_user_id'] = $this->session->userdata('user_id');
         $data['produto_tipo_produto_id'] = $this->input->post('produto_tipo_produto');
         $data['produto_status'] = 1;
@@ -318,7 +318,7 @@ class Produto extends CI_Controller {
         $id = $this->input->post('produto_id');
 
         $data['produto_nome'] = $this->input->post('produto_nome');
-        $data['produto_preco_novo'] = $this->input->post('produto_preco_novo');
+        $data['produto_preco_venda'] = $this->input->post('produto_preco_venda');
         $data['produto_status'] = $this->input->post('produto_status');
 
         $this->db->where('produto_id', $id);
@@ -341,51 +341,9 @@ class Produto extends CI_Controller {
 
 
             if ($this->db->insert('transacao', $data)) {
-                $this->db->select('*');
-                $this->db->where('produto_status', "1");
-                $this->db->where('produto_destaque', "1");
-                $dados['produto_destaque'] = $this->db->get('produto', 12)->result();
-
-                $this->db->select('*');
-                $this->db->where('produto_status', "1");
-                $dados['produto'] = $this->db->get('produto')->result();
-
-                $this->db->select('*');
-                $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
-                $this->db->where('transacao_status', "0");
-                $this->db->where('transacao_status_item', "1");
-                $this->db->where('transacao_token', "");
-                $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
-                $data['carrinho'] = $this->db->get('transacao')->result();
-
-
-                $this->load->view('inc/head_main');
-                $this->load->view('inc/nav_superior', $data);
-                $this->load->view('home', $dados);
-                $this->load->view('inc/footer_main');
+                redirect(base_url());
             } else {
-                $this->db->select('*');
-                $this->db->where('produto_status', "1");
-                $this->db->where('produto_destaque', "1");
-                $dados['produto_destaque'] = $this->db->get('produto', 12)->result();
-
-                $this->db->select('*');
-                $this->db->where('produto_status', "1");
-                $dados['produto'] = $this->db->get('produto')->result();
-
-                $this->db->select('*');
-                $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
-                $this->db->where('transacao_status', "0");
-                $this->db->where('transacao_status_item', "1");
-                $this->db->where('transacao_token', "");
-                $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
-                $data['carrinho'] = $this->db->get('transacao')->result();
-
-
-                $this->load->view('inc/head_main');
-                $this->load->view('inc/nav_superior', $data);
-                $this->load->view('home', $dados);
-                $this->load->view('inc/footer_main');
+                redirect(base_url());
             }
         } else {
             redirect(base_url('user/loginView'));
@@ -404,6 +362,12 @@ class Produto extends CI_Controller {
             $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
             $this->db->join('user', 'produto_user_id=user_id', 'inner');
             $data['carrinho'] = $this->db->get('transacao')->result();
+
+            $this->db->select('*');
+            $this->db->where('produto_status', "1");
+            $this->db->where('produto_destaque', "1");
+            $this->db->order_by("produto_data_cadastro", "asc");
+            $data['produto_destaque'] = $this->db->get('produto', 12)->result();
 
             $this->load->view('inc/head_main');
             $this->load->view('inc/nav_superior', $data);
@@ -425,7 +389,7 @@ class Produto extends CI_Controller {
     public function geraCupom($total = null) {
         $caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $mistura = substr(str_shuffle($caracteres), 0, 8);
-        
+
         $data['cupom_empresa_id'] = $this->input->post('produto_user_id');
         $data['cupom_token'] = $mistura;
         $data['cupom_status'] = '1';
@@ -572,7 +536,7 @@ class Produto extends CI_Controller {
 // recebe os dados do formulário
         $data['produto_nome'] = $this->input->post('produto_nome');
         $data['produto_descricao'] = $this->input->post('produto_descricao');
-        $data['produto_preco_novo'] = $this->input->post('produto_preco_novo');
+        $data['produto_preco_venda'] = $this->input->post('produto_preco_venda');
         $data['produto_preco_velho'] = $this->input->post('produto_preco_velho');
         $data['produto_user_id'] = $this->session->userdata('user_id');
         $data['produto_tipo_produto_sub_id'] = $this->input->post('produto_tipo_produto_sub_id');

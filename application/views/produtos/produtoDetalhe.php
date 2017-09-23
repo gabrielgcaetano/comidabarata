@@ -37,7 +37,7 @@
                                     <div class="products">
                                         <div class="hot-deal-wrapper">
                                             <div class="image">
-                                                <img  src="<?= base_url(); ?>images/produto/<?= $prodd->produto_foto; ?>" alt="">
+                                                <img  src="<?= base_url(); ?>images/produto/<?= $prodd->produto_foto; ?>" alt="" width="250" height="250">
                                             </div>
                                         </div>
                                     </div><!-- /.hot-deal-wrapper -->
@@ -47,7 +47,7 @@
                                         <div class="rating rateit-small"></div>
 
                                         <div class="product-price">	
-                                            <span class="price">R$ <?= number_format($prodd->produto_preco_novo, 2); ?></span>
+                                            <span class="price">R$ <?= number_format($prodd->produto_preco_venda, 2); ?></span>
 
                                             <span class="price-before-discount">R$ <?= number_format($prodd->produto_preco_velho, 2); ?></span>					
 
@@ -130,7 +130,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="price-box">
-                                                    <span class="price">R$ <?= number_format($produto[0]->produto_preco_novo, 2); ?></span>
+                                                    <span class="price">R$ <?= number_format($produto[0]->produto_preco_venda, 2); ?></span>
                                                     <span class="price-strike">R$ <?= number_format($produto[0]->produto_preco_velho, 2); ?></span>
                                                 </div>
                                             </div>
@@ -219,7 +219,7 @@
                                     <div class="product">		
                                         <div class="product-image">
                                             <div class="image">
-                                                <a href="<?= base_url(); ?>produto/detalheProduto/<?= $aEmpresa->produto_id ?>"><img  src="<?= base_url(); ?>images/produto/<?= $aEmpresa->produto_foto; ?>" alt=""></a>
+                                                <a href="<?= base_url(); ?>produto/detalheProduto/<?= $aEmpresa->produto_id ?>"><img  src="<?= base_url(); ?>images/produto/<?= $aEmpresa->produto_foto; ?>" alt="" width="250" height="250"></a>
                                             </div><!-- /.image -->			
                                         </div><!-- /.product-image -->
 
@@ -230,7 +230,8 @@
                                             <div class="description"></div>
 
                                             <div class="product-price">	
-                                                <span class="price"> R$ <?= number_format($aEmpresa->produto_preco_novo, 2); ?> </span>
+                                                <span class="price"> R$ <?= number_format($aEmpresa->produto_preco_venda
+                                                        , 2); ?> </span>
                                                 <span class="price-before-discount"> R$ <?= number_format($aEmpresa->produto_preco_velho, 2); ?> </span>
 
                                             </div><!-- /.product-price -->

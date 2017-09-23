@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="module-body">
                         <ul class='list-unstyled'>
                             <li class="first"><a title="Your Account" href="#">Sobre</a></li>
-                            <li class="last"><a title="Empresas" href="<?= base_url(); ?>main/login">´Área Restrita</a></li>
+                            <li class="last"><a title="Empresas" href="#">´Área Restrita</a></li>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->

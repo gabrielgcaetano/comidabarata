@@ -5,6 +5,14 @@ ComidaBarata.com - O Projeto Voltado para Sustentabilidade.
 O sistema faz a comercialização de produtos alimentícios prestes a perder a validade.
 
 *********
+Autores
+*********
+
+`Gabriel Goulart Caetano <gabriel.goulartcaetano@gmail.com>`_
+`Prof. Me. Angelo Gonçalves da Luz <angelogl@gmail.com>`_
+
+
+*********
 Tecnologias Utilizadas
 *********
 

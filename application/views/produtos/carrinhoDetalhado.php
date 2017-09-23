@@ -47,7 +47,7 @@
                                 <tbody>
                                     <?php
                                     foreach ($carrinho as $car) {
-                                        $total = $total + ($car->transacao_produto_quantidade * $car->produto_preco_novo);
+                                        $total = $total + ($car->transacao_produto_quantidade * $car->produto_preco_venda);
                                         $totalItens = $totalItens + $car->transacao_produto_quantidade;
                                     }
                                     ?>
@@ -86,8 +86,8 @@
                                                     <input type="text" value="<?= $car->transacao_produto_quantidade ?>">
                                                 </div>
                                             </td>
-                                            <td class="cart-product-sub-total"><span class="cart-sub-total-price"> R$ <?= number_format($car->produto_preco_novo , 2); ?> </span></td>
-                                            <td class="cart-product-grand-total"><span class="cart-grand-total-price"> R$ <?= number_format(($car->transacao_produto_quantidade * $car->produto_preco_novo), 2); ?></span></td>
+                                            <td class="cart-product-sub-total"><span class="cart-sub-total-price"> R$ <?= number_format($car->produto_preco_venda , 2); ?> </span></td>
+                                            <td class="cart-product-grand-total"><span class="cart-grand-total-price"> R$ <?= number_format(($car->transacao_produto_quantidade * $car->produto_preco_venda), 2); ?></span></td>
                                         </tr>
                                     <?php } ?>  
                                 </tbody><!-- /tbody -->

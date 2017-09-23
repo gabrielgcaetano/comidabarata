@@ -61,9 +61,9 @@
                                                             <td><br><br><p class="text-center"> <?= $item->transacao_produto_quantidade; ?> </p></td>
                                                             <td>
                                                                 <ul><p><s><?= number_format($item->produto_preco_velho, 2); ?> </s></p></ul>
-                                                                <ul><p><?= number_format($item->produto_preco_novo, 2); ?></p></ul>
-                                                            <td><br><br><p class="text-center"> <?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_novo), 2); ?> </p></td>
-                                                            <td><br><br><p class="text-center"><?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_velho) - (($item->transacao_produto_quantidade * $item->produto_preco_novo)), 2); ?> </p></td>
+                                                                <ul><p><?= number_format($item->produto_preco_venda, 2); ?></p></ul>
+                                                            <td><br><br><p class="text-center"> <?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_venda), 2); ?> </p></td>
+                                                            <td><br><br><p class="text-center"><?= number_format(($item->transacao_produto_quantidade * $item->produto_preco_velho) - (($item->transacao_produto_quantidade * $item->produto_preco_venda)), 2); ?> </p></td>
                                                         </tr>    
                                                         <?php
                                                     }

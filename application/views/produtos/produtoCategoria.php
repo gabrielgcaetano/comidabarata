@@ -285,7 +285,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <div class="description"></div>
 
                                                         <div class="product-price">	
-                                                            <span class="price"> R$ <?= number_format($prod->produto_preco_novo, 2); ?> </span>
+                                                            <span class="price"> R$ <?= number_format($prod->produto_preco_venda, 2); ?> </span>
                                                             <span class="price-before-discount"> R$ <?= number_format($prod->produto_preco_velho, 2); ?> </span>
 
                                                         </div><!-- /.product-price -->
@@ -343,7 +343,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $prod->produto_id ?>"><?= substr($prod->produto_nome, 0, 22) ?></a></h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="product-price">	
-                                                            <span class="price">R$ <s><?= number_format($prod->produto_preco_novo, 2); ?></s></span>
+                                                            <span class="price">R$ <s><?= number_format($prod->produto_preco_venda, 2); ?></s></span>
                                                             <span class="price-before-discount">R$ <?= number_format($prod->produto_preco_velho, 2); ?></span>
 
                                                         </div><!-- /.product-price -->

@@ -43,8 +43,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="produto_preco_novo"> Preço Atual </label>
-                                        <input type="text" id="produto_preco_novo" name="produto_preco_novo" 
+                                        <label for="produto_preco_venda"> Preço Atual </label>
+                                        <input type="text" id="produto_preco_venda" name="produto_preco_venda" 
                                                class="form-control" required>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
 
                                 <div class="col-sm-8">
                                     <div class="form-group">
-                                        <label for="produto_preco_novo"> Data de Validade </label>
+                                        <label for="produto_preco_venda"> Data de Validade </label>
                                         <input type="date" id="produto_validade" name="produto_validade" 
                                                class="form-control" required>
                                     </div>

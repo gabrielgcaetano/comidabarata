@@ -56,6 +56,10 @@ class User extends CI_Controller {
         $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
         $data['carrinho'] = $this->db->get('transacao')->result();
 
+        if (!isset($_SESSION['user_nomee'])) {
+            $this->session->set_userdata('user_nomee', "");
+        }
+
         $this->load->view('inc/head_main');
         $this->load->view('inc/nav_superior', $data);
         $this->load->view('perfil/loginHome');

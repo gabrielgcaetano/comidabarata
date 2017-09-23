@@ -23,9 +23,9 @@
 
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="produto_preco_novo"> Preço </label>
-                                <input type="text" id="produto_preco_novo" name="produto_preco_novo" 
-                                       class="form-control" value="<?= $produto[0]->produto_preco_novo ?>" required>
+                                <label for="produto_preco_venda"> Preço </label>
+                                <input type="text" id="produto_preco_venda" name="produto_preco_venda" 
+                                       class="form-control" value="<?= $produto[0]->produto_preco_venda ?>" required>
                             </div>
                         </div>
 

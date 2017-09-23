@@ -29,9 +29,7 @@ class Main extends CI_Controller {
         $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
         $data['carrinho'] = $this->db->get('transacao')->result();
 
-        if (isset($_SESSION['user_nomee'])) {
-            
-        } else {
+        if (!isset($_SESSION['user_nomee'])) {
             $this->session->set_userdata('user_nomee', "");
         }
 
