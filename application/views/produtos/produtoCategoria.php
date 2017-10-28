@@ -303,7 +303,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 </li>
 
                                                                 <li class="lnk wishlist">
-                                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                                    <a class="add-to-cart" href="#" title="Wishlist">
                                                                         <i class="icon fa fa-heart"></i>
                                                                     </a>
                                                                 </li>

@@ -22,12 +22,12 @@
                         <?php foreach ($cupom as $c) { ?>
 
                             <div class="panel panel-default checkout-step-01">
-
+                                <form>
                                 <!-- panel-heading -->
                                 <div class="panel-heading">
                                     <h4 class="unicase-checkout-title">
                                         <a data-toggle="collapse" class="" data-parent="#accordion" href="">
-                                            <span><?= $c->cupom_token ?></span> Cupom Gerado ( <?= date('d/m/Y h:m:s', strtotime($c->cupom_data));        ?> )
+                                            <span><?= $c->cupom_token ?></span> Cupom Gerado ( <?= date('d/m/Y h:m:s', strtotime($c->cupom_data)); ?> )
                                         </a>
                                     </h4>
                                 </div>
@@ -74,8 +74,12 @@
                                     </div>
                                     <!-- panel-body  -->
                                 </div><!-- row -->
+                                <div class="panel-footer" >
+                                    <a href="<?= base_url('produto/printMeusCupons/' . $c->cupom_token) ?>" <button type="submit" style="background-color: white;border-color: black;" class="btn btn-lg col-lg-offset-10">Imprimir</button> </a>
+                                </div>
+                                </form>
                             </div>
-                        <p style="margin-top: 100px;"/>
+                            <p style="margin-top: 100px;"/>
                         <?php } ?>  
                     </div><!-- /.checkout-steps -->
                 </div>

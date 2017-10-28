@@ -49,8 +49,13 @@ class Gerencial extends CI_Controller {
         $valor = 0;
         $total = 0;
         $valorComissao = 0;
+        $lucro = 0;
+        $quantidadeItes = 0;
         $start_date = "01-09-2017";
         $end_date = "30-09-2017";
+        
+        $start_date = $this->input->post('data_inicio');
+        $end_date = $this->input->post('data_final');
 
         $this->db->select('transacao_produto_quantidade, produto_preco_venda');
         $this->db->where('transacao_empresa_id', $this->session->userdata('user_id'));
@@ -59,12 +64,15 @@ class Gerencial extends CI_Controller {
         $this->db->where('transacao_data BETWEEN "' . date('Y-m-d H:m:s', strtotime($start_date)) . '" and "' . date('Y-m-d H:m:s', strtotime($end_date)) . '"');
         $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
         $data['transacao'] = $this->db->get('transacao')->result();
-
+         
         foreach ($data['transacao'] as $trans) {
             $total = $total + ($trans->transacao_produto_quantidade * $trans->produto_preco_venda);
+            $quantidadeItes +=  $trans->transacao_produto_quantidade;
         }
         $data['valorTotal'] = $total;
-        $data['valorComissao'] = $total * 0.05;
+        $data['valorComissao'] = $total * 0.1;
+        $data['lucro'] = $total * 0.9;
+        $data['quantidadeItes'] = $quantidadeItes;
 
 
         $this->load->view('inc/head-adm');

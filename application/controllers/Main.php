@@ -5,6 +5,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
     public function index() {
+        if(isset($_SESSION['user_id'])){
+             $this->db->where('user_id', $_SESSION['user_id']);
+            $dados['user'] = $this->db->get('user')->result();
+            if  ($dados['user'][0]->user_tipo_user_id == 3) {
+                $this->load->view('redirecionamento', $dados);
+            }
+        }
+        
+        
         $this->db->select('*');
         $this->db->where('produto_status', "1");
         $this->db->order_by("produto_data_cadastro", "asc");

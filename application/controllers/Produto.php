@@ -456,6 +456,32 @@ class Produto extends CI_Controller {
         }
     }
 
+    public function printMeusCupons($token = null) {
+        if (isset($_SESSION['user_nomee'])) {
+
+            if (isset($token)) {
+                $this->db->select('*');
+                $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
+                $this->db->where('transacao_status', "0");
+                $this->db->where('transacao_status_item', "1");
+                $this->db->where('transacao_token', $token);
+                $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+                $this->db->join('user', 'user_id=transacao_empresa_id', 'inner');
+                $data['itensCupom'] = $this->db->get('transacao')->result();
+
+                $this->db->select('*');
+                $this->db->where('cupom_user_id', $this->session->userdata('user_id'));
+                $this->db->where('cupom_status', '1');
+                $this->db->order_by("cupom_data", "desc");
+                $data['cupom'] = $this->db->get('cupom')->result();
+
+                $this->load->view('produtos/printCupom', $data);
+            }
+        } else {
+            redirect(base_url('user/loginView'));
+        }
+    }
+
     public function cupomPesquisa() {
         $nome = $this->input->post('cupom_token');
 

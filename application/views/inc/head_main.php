@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <!-- Meta -->
         <meta charset="utf-8">
@@ -8,9 +8,10 @@
         <meta name="description" content="Lugar onde comprar otimos produtos a um preço baixo">
         <meta name="author" content="Gabriel Goulart Caetano">
         <meta name="keywords" content="Promoção, Comida, Barata, Comida Barata, Krolow, Treichel, Supermercado, Mercado, Maxxi, eCommerce">
+        <meta name="title" content="ComidaBarata.com.br seu Supermercado mais próximo de você">
         <meta name="robots" content="all">
 
-        <title>ComidaBarata.com.br </title>
+        <title>ComidaBarata.com.br seu Supermercado mais próximo de você </title>
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.min.css">
