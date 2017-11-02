@@ -471,9 +471,14 @@ class Produto extends CI_Controller {
 
                 $this->db->select('*');
                 $this->db->where('cupom_user_id', $this->session->userdata('user_id'));
+                $this->db->where('cupom_token', $token);
                 $this->db->where('cupom_status', '1');
                 $this->db->order_by("cupom_data", "desc");
                 $data['cupom'] = $this->db->get('cupom')->result();
+                
+                $this->db->select('*');
+                $this->db->where('user_id', $this->session->userdata('user_id'));
+                $data['user'] = $this->db->get('user')->result();
 
                 $this->load->view('produtos/printCupom', $data);
             }

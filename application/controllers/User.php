@@ -151,8 +151,6 @@ class User extends CI_Controller {
         $data['user_nome'] = $this->input->post('user_nome');
         $data['user_email'] = $this->input->post('user_email');
         $data['user_senha'] = $this->input->post('user_senha');
-        $data['user_documento'] = $this->input->post('user_documento');
-        $data['user_tel_1'] = $this->input->post('user_tel_1');
         $data['user_tipo_user_id'] = '2';
 
         if ($this->db->insert('user', $data)) {
