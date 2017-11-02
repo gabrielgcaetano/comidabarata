@@ -66,7 +66,6 @@
                                                 <h4 class='cart-product-description'><a href="<?= base_url(); ?>produto/detalheProduto/<?= $car->produto_id ?>"><?= substr($car->produto_nome, 0, 22) ?></a></h4>
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <div class="rating rateit-small"></div>
                                                     </div>
                                                     <div class="col-sm-8">
 

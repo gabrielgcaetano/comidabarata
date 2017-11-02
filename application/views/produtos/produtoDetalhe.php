@@ -44,7 +44,6 @@
 
                                     <div class="product-info text-left m-t-20">
                                         <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $prodd->produto_id ?>"><?= substr($prodd->produto_nome, 0, 22) ?></a></h3>
-                                        <div class="rating rateit-small"></div>
 
                                         <div class="product-price">	
                                             <span class="price">R$ <?= number_format($prodd->produto_preco_venda, 2); ?></span>
@@ -115,16 +114,6 @@
                                     <input type="hidden" id="produto_id" name="produto_id" value="<?= $produto[0]->produto_id ?>">
                                     <input type="hidden" id="produto_empresa_id" name="transacao_empresa_id" value="<?= $produto[0]->produto_user_id ?>">
                                     <div class="rating-reviews m-t-20">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <div class="rating rateit-small"></div>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="reviews">
-                                                    <a href="#" class="lnk">(13 Qualificações)</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.row -->		
                                     </div><!-- /.rating-reviews -->
                                     <div class="price-container info-container m-t-20">
                                         <div class="row">
@@ -226,9 +215,7 @@
 
                                         <div class="product-info text-left">
                                             <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $aEmpresa->produto_id ?>"><?= substr($aEmpresa->produto_nome, 0, 22) ?></a></h3>
-                                            <div class="rating rateit-small"></div>
                                             <div class="description"></div>
-
                                             <div class="product-price">	
                                                 <span class="price"> R$ <?= number_format($aEmpresa->produto_preco_venda
                                                         , 2); ?> </span>

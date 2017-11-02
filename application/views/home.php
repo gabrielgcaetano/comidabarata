@@ -185,15 +185,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="section-title">Produtos tags</h3>
                     <div class="sidebar-widget-body outer-top-xs">
                         <div class="tag-list">					
-                            <a class="item" title="Phone" href="category.html">Açucar</a>
-                            <a class="item active" title="Vest" href="category.html">Arroz</a>
-                            <a class="item" title="Smartphone" href="category.html">Bolacha</a>
-                            <a class="item" title="Furniture" href="category.html">Fejão</a>
-                            <a class="item" title="T-shirt" href="category.html">Massa</a>
-                            <a class="item" title="Sweatpants" href="category.html">Biscoito</a>
-                            <a class="item" title="Sneaker" href="category.html">Oleo</a>
-                            <a class="item" title="Toys" href="category.html">Tempero</a>
-                            <a class="item" title="Rose" href="category.html">Ração</a>
+                            <a class="item" title="Phone" href="#">Açucar</a>
+                            <a class="item active" title="Vest" href="#">Arroz</a>
+                            <a class="item" title="Smartphone" href="#">Bolacha</a>
+                            <a class="item" title="Furniture" href="#">Fejão</a>
+                            <a class="item" title="T-shirt" href="#">Massa</a>
+                            <a class="item" title="Sweatpants" href="#">Biscoito</a>
+                            <a class="item" title="Sneaker" href="#">Oleo</a>
+                            <a class="item" title="Toys" href="#">Tempero</a>
+                            <a class="item" title="Rose" href="#">Ração</a>
                         </div><!-- /.tag-list -->
                     </div><!-- /.sidebar-widget-body -->
                 </div><!-- /.sidebar-widget -->
@@ -273,7 +273,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                     <div class="product-info text-left">
                                                         <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $prod->produto_id ?>"><?= substr($prod->produto_nome, 0, 22) ?></a></h3>
-                                                        <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
 
                                                         <div class="product-price">	
@@ -311,7 +310,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div><!-- /.product-image -->
                                         <div class="product-info text-left">
                                             <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $prodd->produto_id ?>"><?= substr($prodd->produto_nome, 0, 22) ?></a></h3>
-                                            <div class="rating rateit-small"></div>
                                             <div class="description"></div>
 
                                             <div class="product-price">	
@@ -364,9 +362,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="product-info text-left">
                                             <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $prod_val->produto_id ?>"><?= substr($prod_val->produto_nome, 0, 22) ?></a></h3>
-                                            <div class="rating rateit-small"></div>
                                             <div class="description"></div>
-
                                             <div class="product-price">	
                                                 <span class="price">
                                                     R$ <?= number_format($prod_val->produto_preco_venda, 2); ?>				</span>
