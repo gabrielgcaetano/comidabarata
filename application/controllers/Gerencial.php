@@ -62,6 +62,12 @@ class Gerencial extends CI_Controller {
         $data['quantidadeItes'] = $quantidadeItes;
         $data['data_inicio'] = $start_date;
         $data['data_final'] = $end_date;
+        
+        if(date('d/m/Y', strtotime($start_date)) != "01/01/1970"){
+            $this->load->view('gerencial/print/rel_vendas_resumido', $data);
+        }
+        
+        
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -82,7 +88,7 @@ class Gerencial extends CI_Controller {
         $end_date = $this->input->post('h_data_final');
         $data['data_inicio'] = date('m-d-Y', strtotime($start_date));
         $data['data_final'] = date('m-d-Y', strtotime($end_date));
-        
+ 
         $this->db->select('transacao_produto_quantidade, produto_preco_venda');
         $this->db->where('transacao_empresa_id', $this->session->userdata('user_id'));
         $this->db->where('transacao_status', "0");

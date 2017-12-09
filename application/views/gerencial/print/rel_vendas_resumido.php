@@ -38,7 +38,7 @@ $html = $html . ' <br> ';
 $html = $html . ' <h2>Valor Venda Total : ' . number_format($valorTotal, 2) . '</h2> ';
 $html = $html . ' <h2>Comissão Sistema : ' . number_format($valorComissao, 2) . '</h2> ';
 $html = $html . ' <h2>Lucro : ' . number_format($lucro, 2) . '</h2> ';
-$html = $html . ' <h2>Quantidade produtos vendidos : ' . number_format($quantidadeItes, 2) . '</h2> ';
+$html = $html . ' <h2>Quantidade produtos vendidos : ' . number_format($quantidadeItes, 0) . '</h2> ';
 
 // Carrega seu HTML
 $dompdf->load_html($html);

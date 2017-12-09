@@ -46,6 +46,7 @@
                                     <th><p class="centered">Imagem</p></th>
                                     <th>Produto</th>
                                     <th>Preço</th>
+                                    <th class="text-center">Vizualização</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -56,6 +57,7 @@
                                         <td><p class="centered"><a href="#"><img src="<?= base_url(); ?>images/produto/<?= $prod->produto_foto; ?>" class="img-responsive" width="80"></a></p></td>
                                         <td><br><br><p class=""> <?= $prod->produto_nome; ?> </p></td>
                                         <td><br><br><p class=""> <?= number_format($prod->produto_preco_venda,2);  ?> </p></td>
+                                        <td><br><br><p class="text-center"> <?= number_format($prod->produto_visita,0);  ?> </p></td>
                                         <td><br><a href="<?= base_url('produto/formUpdate/' . $prod->produto_id) ?>" class="btn btn-lg btn-group bottom-verde">Detalhes</a> </td> 
                                     </tr>    
                                 <?php } ?>

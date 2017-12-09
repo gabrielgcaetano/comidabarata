@@ -36,12 +36,38 @@
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
-                    <span>Gerencial</span>
+                    <span>Relatórios</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="<?= base_url(); ?>Gerencial/vendas">Total Vendas</a></li>
+                    <li><a  href="<?= base_url(); ?>Gerencial/vendas">Vendas Período Resumido</a></li>
+                </ul>
+                <ul class="sub">
+                <li><a  href="#">Vendas Período Detalhado</a></li>
+                </ul>
+                <ul class="sub">
+                    <li><a  href="#">Anuncios Ativos</a></li>
                 </ul>
             </li>
+            
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-desktop"></i>
+                    <span>Gráficos</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="#">5 - Mais Vendidos</a></li>
+                </ul>
+                <ul class="sub">
+                <li><a  href="#">5 - Mais Vistos</a></li>
+                </ul>
+            </li>
+            
+            
+            
+            
+            
+            
+            
             
 <!--            <li class="sub-menu">
                 <a href="javascript:;" >

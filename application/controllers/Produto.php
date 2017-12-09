@@ -147,6 +147,17 @@ class Produto extends CI_Controller {
             $this->session->set_userdata('user_nomee', "");
         }
 
+        $this->db->select('*');
+        $this->db->where('produto_id', $id);
+        $dadosView['produto'] = $this->db->get('produto')->result();
+
+//        $views = $dados['produto'][0]->produto_visita + 1;
+        $dataView['produto_visita'] = $dadosView['produto'][0]->produto_visita + 1;
+        $this->db->where('produto_id', $id);
+        if ($this->db->update('produto', $dataView)) {
+           
+        }
+        
         $this->load->view('inc/head_main');
         $this->load->view('inc/nav_superior', $data);
         $this->load->view('produtos/produtoDetalhe', $dados);
@@ -475,7 +486,7 @@ class Produto extends CI_Controller {
                 $this->db->where('cupom_status', '1');
                 $this->db->order_by("cupom_data", "desc");
                 $data['cupom'] = $this->db->get('cupom')->result();
-                
+
                 $this->db->select('*');
                 $this->db->where('user_id', $this->session->userdata('user_id'));
                 $data['user'] = $this->db->get('user')->result();

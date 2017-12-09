@@ -346,7 +346,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
                 <section class="section wow fadeInUp new-arriavls">
-                    <h3 class="section-title">Ofertas de Sustentabilidade</h3>
+                    <h3 class="section-title">Ofertas de Sustentabilidade (Produtos próximos a data de validade)</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
                         <?php foreach ($produto_validade as $prod_val) { ?>
                             <div class="item item-carousel">
