@@ -40,6 +40,8 @@ class User extends CI_Controller {
             $this->session->set_userdata('user_id', $dados['user_id']);
             $this->session->set_userdata('user_nomee', $dados['user_nome']);
             $this->session->set_userdata('user_logado', $dados['user_logado']);
+            $dados['logado'] = "1";
+            $this->session->set_userdata($dados);
 
             redirect('user/redirecionamento');
         } else {
@@ -382,6 +384,8 @@ class User extends CI_Controller {
     }
 
     public function logout() {
+        $dados['logado'] = "0";
+        $this->session->set_userdata($dados);
         $this->session->sess_destroy();
         redirect('main');
     }

@@ -40,12 +40,8 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="<?= base_url(); ?>Gerencial/vendas">Vendas Período Resumido</a></li>
-                </ul>
-                <ul class="sub">
-                <li><a  href="#">Vendas Período Detalhado</a></li>
-                </ul>
-                <ul class="sub">
-                    <li><a  href="#">Anuncios Ativos</a></li>
+                    <li><a  href="#">Vendas Período Detalhado</a></li>
+                    <li><a  href="<?= base_url(); ?>Gerencial/relAnunciosAtivos">Anúncios Ativos</a></li>
                 </ul>
             </li>
             
@@ -55,10 +51,8 @@
                     <span>Gráficos</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="#">5 - Mais Vendidos</a></li>
-                </ul>
-                <ul class="sub">
-                <li><a  href="#">5 - Mais Vistos</a></li>
+                    <li><a  href="<?= base_url(); ?>graficoMaisVendido">5 - Mais Vendidos</a></li>
+                    <li><a  href="<?= base_url(); ?>graficoMaisVistos">5 - Mais Vistos</a></li>
                 </ul>
             </li>
             
