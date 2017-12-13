@@ -30,7 +30,7 @@
                         <div class="panel-heading"><h3> Gráfico Mais Vistos - Top 5 </h3></div>
                         <div class="panel-body">
                             <div class="col-lg-12 col-lg-offset-2">
-                                <div id="piechart" style="width: 900px; height: 500px;"></div>
+                                <div id="piechart" style="width: 800px; height: 500px;"></div>
                             </div>
                         </div>
                     </div>

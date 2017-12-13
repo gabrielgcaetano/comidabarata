@@ -17,6 +17,8 @@
                                     <hr>
                                     <ul role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url(); ?>Produto/meusCupons"><h5 class="text-center"> Meus Cumpons</h5></a></ul>
                                     <hr>
+                                    <ul role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url(); ?>Produto/historico"><h5 class="text-center"> Histórico</h5></a></ul>
+                                    <hr>
                                     <ul role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url(); ?>User/logout"><h5 class="text-center"> Sair</h5></a></ul>
                                 </ul>
                             </a></li>

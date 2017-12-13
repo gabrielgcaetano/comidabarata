@@ -153,6 +153,7 @@ class User extends CI_Controller {
         $data['user_nome'] = $this->input->post('user_nome');
         $data['user_email'] = $this->input->post('user_email');
         $data['user_senha'] = $this->input->post('user_senha');
+        $data['user_status'] = 1;
         $data['user_tipo_user_id'] = '2';
 
         if ($this->db->insert('user', $data)) {
@@ -388,6 +389,62 @@ class User extends CI_Controller {
         $this->session->set_userdata($dados);
         $this->session->sess_destroy();
         redirect('main');
+    }
+
+    public function userList() {
+        $this->db->select('*');
+        $this->db->where('user_status', "1");
+        $dados['user'] = $this->db->get('user')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left_adm');
+        $this->load->view('user/userLista', $dados);
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function updateUserNivelView($id) {
+        $this->db->select('*');
+        $this->db->where('user_id', $id);
+        $this->db->where('user_status', "1");
+        $dados['user'] = $this->db->get('user')->result();
+
+        $this->db->select('*');
+        $this->db->where('user_tipo_status=1');
+        $dados['user_tipo'] = $this->db->get('user_tipo')->result();
+
+        $this->load->view('inc/head-adm');
+        $this->load->view('inc/menu_left_adm');
+        $this->load->view('user/userUpdate', $dados);
+        $this->load->view('inc/footer-adm');
+    }
+
+    public function updateUserNivel() {
+        // recebe os dados do formulário
+        $id = $this->input->post('user_id');
+
+        $data['user_tipo_user_id'] = $this->input->post('user_tipo_user_id');
+
+        $this->db->where('user_id', $id);
+        if ($this->db->update('user', $data)) {
+            $this->db->select('*');
+            $this->db->where('user_status', "1");
+            $dados['user'] = $this->db->get('user')->result();
+
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left_adm');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalSalvoUpdate');
+            $this->load->view('user/userLista', $dados);
+            $this->load->view('inc/footer-adm');
+        } else {
+            // Erro Cadastro
+            $this->load->view('inc/head-adm');
+            $this->load->view('inc/menu_left_adm');
+            $this->load->view('inc/modal');
+            $this->load->view('modal/modalErroUpdate');
+            $this->load->view('user/userLista', $dados);
+            $this->load->view('inc/footer-adm');
+        }
     }
 
 }

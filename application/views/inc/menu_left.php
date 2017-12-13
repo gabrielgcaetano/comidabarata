@@ -25,14 +25,14 @@
 
                 </ul>
             </li>
-            
+
             <li class="mt">
                 <a class="" href="<?= base_url(); ?>produto/cupomPorEmpresa">
                     <i class="fa fa-dashboard"></i>
                     <span>Baixa Cupom</span>
                 </a>
             </li>
-            
+
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
@@ -44,7 +44,7 @@
                     <li><a  href="<?= base_url(); ?>Gerencial/relAnunciosAtivos">Anúncios Ativos</a></li>
                 </ul>
             </li>
-            
+
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
@@ -55,38 +55,9 @@
                     <li><a  href="<?= base_url(); ?>graficoMaisVistos">5 - Mais Vistos</a></li>
                 </ul>
             </li>
-            
-            
-            
-            
-            
-            
-            
-            
-<!--            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-desktop"></i>
-                    <span>Administrativo</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="<?= base_url(); ?>produto/tipoProdutoLista">Tipo de Produtos</a></li>
-                    <li><a  href="<?= base_url(); ?>user/tipoUserLista">Tipo de Usuário</a></li>
-
-                </ul>
-            </li>-->
-
-<!--            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-desktop"></i>
-                    <span> Gerencial </span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="<?= base_url(); ?>gerencial/grafico_marcas_piechart"> Gráficos Marcas </a></li>
-                    <li><a  href="<?= base_url(); ?>gerencial/grafico_view_barra"> Gráficos de Produtos Populares </a></li>
-
-                </ul>
-            </li>-->
-
+            <li class="sub-menu">
+                <a  href="<?= base_url(); ?>denunciasMinhaEmpresa">Denúncias</a>
+            </li>
         </ul>
     </div>
 </aside>

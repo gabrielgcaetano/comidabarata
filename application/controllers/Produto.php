@@ -155,9 +155,9 @@ class Produto extends CI_Controller {
         $dataView['produto_visita'] = $dadosView['produto'][0]->produto_visita + 1;
         $this->db->where('produto_id', $id);
         if ($this->db->update('produto', $dataView)) {
-           
+            
         }
-        
+
         $this->load->view('inc/head_main');
         $this->load->view('inc/nav_superior', $data);
         $this->load->view('produtos/produtoDetalhe', $dados);
@@ -507,7 +507,6 @@ class Produto extends CI_Controller {
         $dados['cupom'] = $this->db->get('cupom')->result();
         $count = count($dados['cupom']);
 
-
         // Verifica se resultou em Zero resultados
         if ($count > 0) {
             $this->db->select('*');
@@ -533,8 +532,6 @@ class Produto extends CI_Controller {
         $this->db->where('user_id', $this->session->userdata('user_id'));
         $this->db->join('produto', 'produto_id=transacao_produto_id', 'inner');
         $dados['transacao'] = $this->db->get('transacao')->result();
-
-
 
         $this->load->view('inc/head-adm');
         $this->load->view('inc/menu_left');
@@ -666,7 +663,7 @@ class Produto extends CI_Controller {
         $dados['tipo_produto'] = $this->db->get('tipo_produto')->result();
 
         $this->load->view('inc/head-adm');
-        $this->load->view('inc/menu_left');
+        $this->load->view('inc/menu_left_adm');
         $this->load->view('adm/tipoProdutosLista', $dados);
         $this->load->view('inc/footer-adm');
     }
@@ -861,6 +858,85 @@ class Produto extends CI_Controller {
         $this->load->view('inc/nav_superior', $data);
         $this->load->view('produtos/produtoCategoria', $dados);
         $this->load->view('inc/footer_main');
+    }
+
+    public function historico() {
+        if (isset($_SESSION['user_nomee'])) {
+
+            $this->db->select('*');
+            $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
+            $this->db->where('transacao_status', "0");
+            $this->db->where('transacao_status_item', "1");
+            $this->db->where('transacao_token', "");
+            $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+            $data['carrinho'] = $this->db->get('transacao')->result();
+
+            $this->db->select('*');
+            $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
+            $this->db->where('transacao_status', "0");
+            $this->db->where('transacao_status_item', "0");
+            $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+            $data['itensCupom'] = $this->db->get('transacao')->result();
+
+            $this->db->select('*');
+            $this->db->where('cupom_user_id', $this->session->userdata('user_id'));
+            $this->db->where('cupom_status', '0');
+            $this->db->order_by("cupom_data", "desc");
+            $data['cupom'] = $this->db->get('cupom')->result();
+
+            $this->load->view('inc/head_main');
+            $this->load->view('inc/nav_superior', $data);
+            $this->load->view('produtos/meusHistoricos', $data);
+            $this->load->view('inc/footer_main');
+        } else {
+            redirect(base_url('user/loginView'));
+        }
+    }
+
+    public function avaliarView($id) {
+        $this->db->select('*');
+        $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
+        $this->db->where('transacao_status', "0");
+        $this->db->where('transacao_status_item', "0");
+        $this->db->where('transacao_id', $id);
+        $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+        $this->db->join('tipo_produto_sub', 'produto_tipo_produto_sub_id=tipo_produto_sub_id', 'inner');
+        $this->db->join('user', 'produto_user_id=user_id', 'inner');
+        $data['itensCupom'] = $this->db->get('transacao')->result();
+
+        $this->db->select('*');
+        $this->db->where('transacao_user_id', $this->session->userdata('user_id'));
+        $this->db->where('transacao_status', "0");
+        $this->db->where('transacao_status_item', "1");
+        $this->db->where('transacao_token', "");
+        $this->db->join('produto', 'transacao_produto_id=produto_id', 'inner');
+        $data['carrinho'] = $this->db->get('transacao')->result();
+
+        $this->db->select('*');
+        $this->db->where('produto_status', "1");
+        $this->db->where('produto_destaque', "1");
+        $this->db->order_by("produto_data_cadastro", "asc");
+        $data['produto_destaque'] = $this->db->get('produto', 12)->result();
+
+        $this->load->view('inc/head_main');
+        $this->load->view('inc/nav_superior', $data);
+        $this->load->view('produtos/avaliacao', $data);
+        $this->load->view('inc/footer_main');
+    }
+
+    public function avaliarUpdate() {
+        // recebe os dados do formulário
+        $id = $this->input->post('transacao_id');
+
+        $data['transacao_avaliacao_produto'] = $this->input->post('transacao_avaliacao_produto');
+        $data['transacao_avaliacao_empresa'] = $this->input->post('transacao_avaliacao_empresa');
+        $data['transacao_avaliacao_site'] = $this->input->post('transacao_avaliacao_site');
+
+        $this->db->where('transacao_id', $id);
+        if ($this->db->update('transacao', $data)) {
+            // recarrega a view (index)
+            redirect(base_url('Produto/historico'));
+        }
     }
 
 }

@@ -177,20 +177,48 @@
                             <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
                                 <li class="active"><a data-toggle="tab" href="#description">Descrição</a></li>
                                 <li class=""><a data-toggle="tab" href="#vendedor">Vendedor</a></li>
+                                <li class=""><a data-toggle="tab" href="#denuncia">Denúncia</a></li>
                             </ul><!-- /.nav-tabs #product-tabs -->
                         </div>
                         <div class="col-sm-9">
-
                             <div class="tab-content">
-
                                 <div id="description" class="tab-pane in active">
                                     <div class="product-tab">
                                         <p class="text"><?= $produto[0]->produto_descricao ?></p>
                                     </div>	
                                 </div><!-- /.tab-pane -->
-                                <div id="vendedor" class="tab-pane in active">
+                                <div id="vendedor" class="tab-pane in">
                                     <div class="product-tab">
                                         <p class="text"><?= $produto[0]->user_nome ?></p>
+                                    </div>	
+                                </div><!-- /.tab-pane -->
+                                <div id="denuncia" class="tab-pane in">
+                                    <div class="product-tab">
+                                        <form method="post" action="<?= base_url('insert') ?>"
+                                              enctype="multipart/form-data">
+                                            <input type="hidden" id="denuncia_produto_id" name="denuncia_produto_id" value="<?= $produto[0]->produto_id ?>">
+                                            <input type="hidden" id="denuncia_user_id_empresa" name="denuncia_user_id_empresa" value="<?= $produto[0]->produto_user_id ?>">
+                                            <div class="col-sm-12">
+                                                <div class="col-sm-8">
+                                                    <p>Título</p>
+                                                    <input type="text" value="" name="denuncia_titulo" id="denuncia_titulo" placeholder="Digite titulo da mensagem ..." size="40">
+                                                </div>
+                                                <div class="col-sm-4">
+
+                                                </div>
+                                                
+                                                <div class="col-sm-8">
+                                                    <br>
+                                                    <p>Mensagem</p>
+                                                    <input type="text" value="" name="denuncia_descricao" id="denuncia_descricao" placeholder="Digite a mensagem aqui ..." size="40">
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>	
                                 </div><!-- /.tab-pane -->
                             </div><!-- /.tab-content -->
@@ -211,21 +239,15 @@
                                                 <a href="<?= base_url(); ?>produto/detalheProduto/<?= $aEmpresa->produto_id ?>"><img  src="<?= base_url(); ?>images/produto/<?= $aEmpresa->produto_foto; ?>" alt="" width="250" height="250"></a>
                                             </div><!-- /.image -->			
                                         </div><!-- /.product-image -->
-
-
                                         <div class="product-info text-left">
                                             <h3 class="name"><a href="<?= base_url(); ?>produto/detalheProduto/<?= $aEmpresa->produto_id ?>"><?= substr($aEmpresa->produto_nome, 0, 22) ?></a></h3>
                                             <div class="description"></div>
                                             <div class="product-price">	
-                                                <span class="price"> R$ <?= number_format($aEmpresa->produto_preco_venda
-                                                        , 2); ?> </span>
+                                                <span class="price"> R$ <?= number_format($aEmpresa->produto_preco_venda, 2); ?> </span>
                                                 <span class="price-before-discount"> R$ <?= number_format($aEmpresa->produto_preco_velho, 2); ?> </span>
-
                                             </div><!-- /.product-price -->
-
                                         </div><!-- /.product-info -->
                                     </div><!-- /.product -->
-
                                 </div><!-- /.products -->
                             </div><!-- /.item -->
                         <?php } ?>

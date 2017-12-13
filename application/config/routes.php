@@ -54,5 +54,15 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['geochart'] = "Base/Geochart";
+
+$route['insert'] = "Denuncia/insert";
+$route['denunciasMinhaEmpresa'] = "Denuncia/selectOff";
+$route['denunciasMinhaEmpresaOn'] = "Denuncia/selectOn";
+$route['denunciasPesquisa'] = "Denuncia/findPorTitulo";
+$route['denunciasConcluida'] = "Denuncia/updateDenunciaConcluida";
+
 $route['graficoMaisVistos'] = "Gerencial/grafMaisVistos";
 $route['graficoMaisVendido'] = "Gerencial/grafMaisVendidos";
+
+$route['userListar'] = "User/userList";
+$route['updateUsuarioNivel'] = "User/updateUserNivel";

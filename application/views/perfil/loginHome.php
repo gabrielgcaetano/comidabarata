@@ -45,7 +45,7 @@
                 <!-- create a new account -->
                 <div class="col-md-6 col-sm-6 create-new-account">
                     <h4 class="checkout-subtitle">Crie uma nova conta</h4>
-                    <p class="text title-tag-line">Crie sua nova conta.</p>
+                    <p class="text title-tag-line">* Obrigatórios.</p>
                     <form class="register-form outer-top-xs" role="form" method="post" action="<?= base_url() ?>user/register_save" enctype="multipart/form-data" >
                         <div class="form-group">
                             <label class="info-title" for="exampleInputEmail2">Email <span>*</span></label>
@@ -63,10 +63,10 @@
                             <label class="info-title" for="exampleInputEmail1">Senha <span>*</span></label>
                             <input type="password" class="form-control unicase-form-control text-input" id="user_senha" name="user_senha">
                         </div>
-<!--                        <div class="form-group">
-                            <label class="info-title" for="exampleInputEmail1">Confirme Senha <span>*</span></label>
-                            <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" name="">
-                        </div>-->
+                        <div class="form-group">
+                            <p><input type="checkbox" required aria-label="...">   Você concorda com nossos <a href="#" target="_blank"> Termos </a>.</p>
+                        </div>
+
                         <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Cadastre-se</button>
                     </form>
 

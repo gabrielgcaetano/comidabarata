@@ -9,7 +9,7 @@
             <div class="alert alert-info text-center" role="alert"><h3><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Dica: Mantenha sempre seu cadastro atualizado. </h3></div>
 
             <div class="row">
-                <div class="col-lg-6 main-chart col-lg-offset-3">
+                <div class="col-lg-12 main-chart">
                     <form method="post" action="<?= base_url('user/UserUpdateSalvar') ?>"
                           enctype="multipart/form-data">
 
@@ -130,7 +130,7 @@
 
 
                         <div class="col-sm-12" align="right">
-                            <button type="submit" class="btn btn-lg btn-info">Salvar</button>
+                            <button type="submit" class="btn btn-lg btn-info " style="color: white; background-color:#4e8621">Salvar</button>
                         </div>    
                         <div style="height:150px">
                             <br>

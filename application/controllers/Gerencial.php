@@ -12,11 +12,11 @@ class Gerencial extends CI_Controller {
         }
     }
 
-    public function verificar_nivel() {
-        if ($this->session->userdata('nivel_usuario') == "3") {
-            redirect(base_url());
-        }
-    }
+//    public function verificar_nivel() {
+//        if ($this->session->userdata('nivel_usuario') == "3") {
+//            redirect(base_url());
+//        }
+//    }
 
     public function index() {
         
@@ -159,7 +159,6 @@ class Gerencial extends CI_Controller {
 
     public function grafMaisVendidos() {
         $this->verificar_session();
-        $this->verificar_nivel();
         $this->db->select('*');
         $this->db->where('produto_status', "1");
         $this->db->where('transacao_empresa_id', $this->session->userdata('user_id'));
